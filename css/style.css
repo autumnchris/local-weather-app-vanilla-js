@@ -1,0 +1,186 @@
+@font-face {
+  font-family: "Weather Icons";
+  src: url(../fonts/weather-icons.ttf);
+}
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+body {
+  background-color: #004966;
+  color: #fff;
+  font-family: Asap, sans-serif;
+  letter-spacing: 2px;
+  min-height: 100%;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+h1 {
+  font-size: 2.3rem;
+  letter-spacing: 4px;
+  margin: 6% 3% 3%;
+}
+
+.well {
+  background-color: #006e99;
+  border: none;
+  max-width: 1000px;
+}
+
+#location,
+#weather {
+  font-size: 1.2em;
+  margin: 2%;
+  text-shadow: 1px 1px 1px #004966;
+}
+
+#temp {
+  font-size: 5em;
+  text-shadow: 2px 2px 1px #004966;
+}
+
+#weather-icon {
+  font: 4em "Weather Icons";
+  text-shadow: 2px 2px 1px #004966;
+}
+
+.btn,
+.btn:active,
+.btn:focus {
+  background-color: #006e99;
+  border: 1px solid #fff;
+  color: #fff;
+  margin: 25px 0;
+  width: 50px;
+}
+
+.btn:hover {
+  background-color: #004966;
+  color: #fff;
+}
+
+.btn.active {
+  background-color: #fff;
+  box-shadow: none;
+  color: #006e99;
+}
+
+.table {
+  font-size: 1.5rem;
+  margin: 0 auto 20px;
+  width: 215px;
+}
+
+.table tbody tr td .wi {
+  font: 1.5rem "Weather Icons";
+}
+
+#hourly-forecast {
+  background-color: #004966;
+  display: -webkit-flex;
+  display: flex;
+}
+
+#hourly-forecast tbody {
+  display: -webkit-flex;
+  display: flex;
+  overflow-x: auto;
+  position: relative;
+}
+
+#hourly-forecast tbody tr {
+  display: table-cell;
+  padding: 18px;
+}
+
+#hourly-forecast tbody tr td {
+  border: none;
+  display: table-row;
+  line-height: 25px;
+}
+
+#daily-forecast thead tr th {
+  background-color: #004966;
+  border: none;
+  font-size: 1rem;
+  text-align: center;
+}
+
+#daily-forecast tbody tr td {
+  border-top: 1px solid #004966;
+  line-height: 22px;
+  text-align: center;
+}
+
+#hourly-forecast tbody tr td:nth-child(4),
+#daily-forecast tbody tr td:nth-child(3),
+#daily-forecast tbody tr td:nth-child(5) {
+  display: none;
+}
+
+.alert-warning {
+  margin: 3%;
+}
+
+.alert-warning .glyphicon {
+  font-size: 1.3em;
+}
+
+footer {
+  background-color: #006e99;
+  bottom: 0;
+  font-size: 0.9rem;
+  left: 0;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 12px 0;
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+
+footer span {
+  margin: 0 8px;
+}
+
+footer a,
+footer a:visited,
+footer a:hover,
+footer a:active,
+footer a:focus {
+  color: #ffff80;
+}
+
+@media only screen and (min-width: 350px) {
+
+  .table {
+    width: 285px;
+  }
+}
+
+@media only screen and (min-width: 550px) {
+
+  .table {
+    font-size: 1.2rem;
+    width: 460px;
+  }
+
+  #daily-forecast tbody tr td {
+    text-align: left;
+  }
+
+  #daily-forecast tbody tr td:nth-child(5) {
+    display: table-cell;
+  }
+
+  footer {
+    font-size: 1.2rem;
+  }
+
+  footer span {
+    margin: 0 16px;
+  }
+}
