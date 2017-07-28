@@ -17,6 +17,29 @@
     <header>
       <h1>View your local weather</h1>
     </header>
+    <div class="well center-block">
+      <div class="row">
+        <div class="col-md-6">
+          <!-- CURRENT WEATHER -->
+          <div id="current-weather"></div>
+          <!-- BUTTONS -->
+          <form>
+            <div class="btn-group" data-toggle="buttons">
+              <label class="btn active" id="to-fahrenheit">
+                <input type="radio" name="options" checked>
+                <span>&deg;F</span>
+              </label>
+              <label class="btn" id="to-celsius">
+                <input type="radio" name="options">
+                <span>&deg;C</span>
+              </label>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6">
+        </div>
+      </div>
+    </div>
     <!-- FOOTER -->
     <footer><span>Coded by <a href="../portfolio" target="_blank">Autumn Bullard</a></span><span>Powered by <a href="https://darksky.net/poweredby" target="_blank">Dark Sky</a></span></footer>
   </div>
