@@ -8,11 +8,11 @@ $.ajax({
   var location = loc.city + ', ' + loc.region_code;
   var lat = loc.latitude;
   var lon = loc.longitude;
-  var APIkey = '6e76605e3f2672147d041fcb0df33e81';
+  var apiKey = '6e76605e3f2672147d041fcb0df33e81';
 
   $.ajax({
     dataType: 'jsonp',
-    url: 'https://api.darksky.net/forecast/' + APIkey + '/' + lat + ',' + lon
+    url: 'https://api.darksky.net/forecast/' + apiKey + '/' + lat + ',' + lon
   }).done(function(weatherData) {
 
     var tempF = Math.round(weatherData.currently.temperature) + '&deg;F';
@@ -69,6 +69,8 @@ $.ajax({
       $('#daily-forecast tbody tr td:nth-child(2)').css('display', 'table-cell');
       $('#daily-forecast tbody tr td:nth-child(3)').css('display', 'none');
     });
+    
+    $('#results').css('display', 'block');
   }).fail(function() {
     $('.well').html(errorMessage);
   });
