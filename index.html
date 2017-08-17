@@ -17,44 +17,46 @@
     <header>
       <h1>View your local weather</h1>
     </header>
-    <div class="well center-block">
-      <div class="row" id="results">
-        <div class="col-md-6">
-          <!-- CURRENT WEATHER -->
-          <div id="current-weather"></div>
-          <!-- BUTTONS -->
-          <form>
-            <div class="btn-group" data-toggle="buttons">
-              <label class="btn active" id="to-fahrenheit">
-                <input type="radio" name="options" checked>
-                <span>&deg;F</span>
-              </label>
-              <label class="btn" id="to-celsius">
-                <input type="radio" name="options">
-                <span>&deg;C</span>
-              </label>
-            </div>
-          </form>
-        </div>
-        <div class="col-md-6">
-          <!-- HOURLY FORECAST -->
-          <table class="table" id="hourly-forecast">
-            <tbody></tbody>
-          </table>
-          <!-- FIVE-DAY FORECAST -->
-          <table class="table" id="daily-forecast">
-            <thead class="text-uppercase">
-              <tr>
-                <th>Day</th>
-                <th>High/Low</th>
-                <th colspan="2">Weather</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
+    <main>
+      <div class="well center-block">
+        <div class="row" id="results">
+          <div class="col-md-6">
+            <!-- CURRENT WEATHER -->
+            <div id="current-weather"></div>
+            <!-- BUTTONS -->
+            <form>
+              <div class="btn-group" data-toggle="buttons">
+                <label class="btn active" id="to-fahrenheit">
+                  <input type="radio" name="options" checked>
+                  <span>&deg;F</span>
+                </label>
+                <label class="btn" id="to-celsius">
+                  <input type="radio" name="options">
+                  <span>&deg;C</span>
+                </label>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <!-- HOURLY FORECAST -->
+            <table class="table" id="hourly-forecast">
+              <tbody></tbody>
+            </table>
+            <!-- FIVE-DAY FORECAST -->
+            <table class="table" id="daily-forecast">
+              <thead class="text-uppercase">
+                <tr>
+                  <th>Day</th>
+                  <th>High/Low</th>
+                  <th colspan="2">Weather</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
         </div>
       </div>
-    </div>
+    </main>
     <!-- FOOTER -->
     <footer><span>Coded by <a href="../portfolio" target="_blank">Autumn Bullard</a></span><span>Powered by <a href="https://darksky.net/poweredby" target="_blank">Dark Sky</a></span></footer>
   </div>
