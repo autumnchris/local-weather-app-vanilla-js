@@ -30,6 +30,10 @@ h1 {
   max-width: 1000px;
 }
 
+#results {
+  display: none;
+}
+
 #location,
 #weather {
   font-size: 1.2em;
