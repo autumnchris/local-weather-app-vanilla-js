@@ -19,7 +19,12 @@ $.ajax({
     var tempC = Math.round((weatherData.currently.temperature - 32) * (5/9)) + '&deg;C';
     var weatherIcon = 'wi wi-forecast-io-' + weatherData.currently.icon;
     var weather = weatherData.currently.summary;
-    var currentWeather = '<div id="location">' + location + '</div><div id="temp">' + tempF + '</div><div><span class="' + weatherIcon + '" id="weather-icon"></span></div><div id="weather">' + weather + '</div>';
+    var currentWeather = '<div id="location">' + location + '</div>' +
+    '<div id="temp">' + tempF + '</div>' +
+    '<div>' +
+      '<span class="' + weatherIcon + '" id="weather-icon"></span>' +
+    '</div>' +
+    '<div id="weather">' + weather + '</div>';
     $('#current-weather').html(currentWeather);
 
     for(var i = 0; i < 24; i++) {
@@ -39,18 +44,43 @@ $.ajax({
       var hourlyIcon = weatherData.hourly.data[i].icon;
       var hourlyTempF = Math.round(weatherData.hourly.data[i].temperature) + '&deg;';
       var hourlyTempC = Math.round((weatherData.hourly.data[i].temperature - 32) * (5/9)) + '&deg;';
-      var hourlyForecast = '<tr><td>' + hourOfDay + '</td><td><span class="wi wi-forecast-io-' + hourlyIcon + '"></span><span class="sr-only">' + hourlyIcon + '</span></td><td>' + hourlyTempF + '</td><td>' + hourlyTempC + '</td></tr>';
+      var hourlyForecast = '<tr>' +
+        '<td>' + hourOfDay + '</td>' +
+        '<td>' +
+          '<span class="wi wi-forecast-io-' + hourlyIcon + '"></span>' +
+          '<span class="sr-only">' + hourlyIcon + '</span>' +
+        '</td>' +
+        '<td>' + hourlyTempF + '</td>' +
+        '<td>' + hourlyTempC + '</td>' +
+      '</tr>';
       $('#hourly-forecast tbody').append(hourlyForecast);
     }
 
     for(var i = 0; i < 5; i++) {
-      var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      var days = [
+        'Sun',
+        'Mon',
+        'Tue',
+        'Wed',
+        'Thu',
+        'Fri',
+        'Sat'
+      ];
       var dayOfWeek = days[new Date(weatherData.daily.data[i].time * 1000).getDay()];
       var highLowF = Math.round(weatherData.daily.data[i].temperatureMax) + '&deg;/' + Math.round(weatherData.daily.data[i].temperatureMin) + '&deg;';
       var highLowC = Math.round((weatherData.daily.data[i].temperatureMax - 32) * (5/9)) + '&deg;/' + Math.round((weatherData.daily.data[i].temperatureMin - 32) * (5/9)) + '&deg;';
       var dailyIcon = weatherData.daily.data[i].icon;
       var dailySummary = weatherData.daily.data[i].summary;
-      var dailyForecast = '<tr><td>' + dayOfWeek + '</td><td>' + highLowF + '</td><td>' + highLowC + '</td><td><span class="wi wi-forecast-io-' + dailyIcon + '"></span><span class="sr-only">' + dailyIcon + '</span></td><td>' + dailySummary + '</td></tr>';
+      var dailyForecast = '<tr>' +
+        '<td>' + dayOfWeek + '</td>' +
+        '<td>' + highLowF + '</td>' +
+        '<td>' + highLowC + '</td>' +
+        '<td>' +
+          '<span class="wi wi-forecast-io-' + dailyIcon + '"></span>' +
+          '<span class="sr-only">' + dailyIcon + '</span>' +
+        '</td>' +
+        '<td>' + dailySummary + '</td>' +
+      '</tr>';
       $('#daily-forecast tbody').append(dailyForecast);
     }
 
@@ -69,7 +99,7 @@ $.ajax({
       $('#daily-forecast tbody tr td:nth-child(2)').css('display', 'table-cell');
       $('#daily-forecast tbody tr td:nth-child(3)').css('display', 'none');
     });
-    
+
     $('#results').css('display', 'block');
   }).fail(function() {
     $('.well').html(errorMessage);
