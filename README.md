@@ -9,14 +9,14 @@ My Show the Local Weather project for the Front End Development Certification on
 * CSS3
 * [jQuery](https://jquery.com)
 * AJAX
-* [Bootstrap CSS](http://getbootstrap.com/css)
+* [Bootstrap 3 CSS](https://getbootstrap.com/docs/3.3/css)
 * HTML5
 
 ## Other Tools Used
 * [Dark Sky weather API](https://darksky.net/dev)
 * [freegeoip.net location API](https://freegeoip.net)
 * [Weather Icons](https://erikflowers.github.io/weather-icons)
-* [Bootstrap JS](http://getbootstrap.com/javascript)
+* [Bootstrap 3 JS](https://getbootstrap.com/docs/3.3/javascript)
 * [Google Fonts](https://fonts.google.com)
 
 ## Demo
