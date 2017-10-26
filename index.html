@@ -25,16 +25,19 @@
             <div id="current-weather"></div>
             <!-- BUTTONS -->
             <form>
-              <div class="btn-group" data-toggle="buttons">
-                <label class="btn active" id="to-fahrenheit">
-                  <input type="radio" name="options" checked>
-                  <span>&deg;F</span>
-                </label>
-                <label class="btn" id="to-celsius">
-                  <input type="radio" name="options">
-                  <span>&deg;C</span>
-                </label>
-              </div>
+              <fieldset>
+                <legend aria-label="Display the temperature in"></legend>
+                <div class="btn-group" data-toggle="buttons">
+                  <label class="btn active" id="to-fahrenheit">
+                    <input type="radio" name="options" checked>
+                    <span>&deg;F</span>
+                  </label>
+                  <label class="btn" id="to-celsius">
+                    <input type="radio" name="options">
+                    <span>&deg;C</span>
+                  </label>
+                </div>
+              </fieldset>
             </form>
           </div>
           <div class="col-md-6">

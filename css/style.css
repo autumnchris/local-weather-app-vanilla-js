@@ -51,6 +51,11 @@ h1 {
   text-shadow: 2px 2px 1px #004966;
 }
 
+legend {
+  border: none !important;
+  margin: 0;
+}
+
 .btn,
 .btn:active,
 .btn:focus {
