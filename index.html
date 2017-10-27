@@ -6,6 +6,7 @@
   <title>Local Weather App (jQuery)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/weather-icons.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
   <link rel="stylesheet" href="css/style.css">
@@ -19,6 +20,11 @@
     </header>
     <main>
       <div class="well center-block">
+        <!-- LOADING SPINNER -->
+        <div id="spinner">
+          <span class="fa fa-refresh fa-spin fa-5x fa-fw"></span>
+          <span class="sr-only">Loading...</span>
+        </div>
         <div class="row" id="results">
           <div class="col-md-6">
             <!-- CURRENT WEATHER -->

@@ -1,4 +1,4 @@
-var errorMessage = '<div class="alert alert-warning text-center"><span class="glyphicon glyphicon-alert"></span> Unable to load current weather.</div>';
+var errorMessage = '<div class="alert alert-warning text-center"><span class="fa fa-warning fa-lg fa-fw"></span> Unable to load current weather.</div>';
 
 $.ajax({
   dataType: 'jsonp',
@@ -100,6 +100,7 @@ $.ajax({
       $('#daily-forecast tbody tr td:nth-child(3)').css('display', 'none');
     });
 
+    $('#spinner').css('display', 'none');
     $('#results').css('display', 'block');
   }).fail(function() {
     $('.well').html(errorMessage);

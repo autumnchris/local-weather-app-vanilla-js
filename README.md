@@ -17,6 +17,7 @@ My Show the Local Weather project for the Front End Development Certification on
 * [freegeoip.net location API](https://freegeoip.net)
 * [Weather Icons](https://erikflowers.github.io/weather-icons)
 * [Bootstrap 3 JS](https://getbootstrap.com/docs/3.3/javascript)
+* [Font Awesome](http://fontawesome.io)
 * [Google Fonts](https://fonts.google.com)
 
 ## Demo

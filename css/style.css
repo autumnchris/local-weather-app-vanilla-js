@@ -30,6 +30,11 @@ h1 {
   max-width: 1000px;
 }
 
+#spinner {
+  margin: 3%;
+  text-shadow: 2px 2px 1px #004966;
+}
+
 #results {
   display: none;
 }
@@ -132,10 +137,6 @@ legend {
 
 .alert-warning {
   margin: 3%;
-}
-
-.alert-warning .glyphicon {
-  font-size: 1.3em;
 }
 
 footer {
