@@ -1,77 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Local Weather App (jQuery)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/weather-icons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>Local Weather App (jQuery)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/weather-icons.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-  <div class="container-fluid text-center">
-    <!-- HEADER -->
-    <header>
-      <h1>View your local weather</h1>
-    </header>
-    <main>
-      <div class="well center-block">
-        <!-- LOADING SPINNER -->
-        <div id="spinner">
-          <span class="fa fa-refresh fa-spin fa-fw"></span>
-          <span class="sr-only">Loading...</span>
-        </div>
-        <div class="row" id="results">
-          <div class="col-md-6">
-            <!-- CURRENT WEATHER -->
-            <div id="current-weather"></div>
-            <!-- BUTTONS -->
-            <form>
-              <fieldset>
-                <legend aria-label="Display the temperature in"></legend>
-                <div class="btn-group" data-toggle="buttons">
-                  <label class="btn active" id="to-fahrenheit">
-                    <input type="radio" name="options" checked>
-                    <span>&deg;F</span>
-                  </label>
-                  <label class="btn" id="to-celsius">
-                    <input type="radio" name="options">
-                    <span>&deg;C</span>
-                  </label>
-                </div>
-              </fieldset>
-            </form>
+  <body>
+    <div class="container-fluid text-center">
+      <!-- HEADER -->
+      <header>
+        <h1>View your local weather</h1>
+      </header>
+      <main>
+        <div class="well center-block">
+          <!-- LOADING SPINNER -->
+          <div id="spinner">
+            <span class="fa fa-refresh fa-spin fa-fw"></span>
+            <span class="sr-only">Loading...</span>
           </div>
-          <div class="col-md-6">
-            <!-- HOURLY FORECAST -->
-            <table class="table" id="hourly-forecast">
-              <tbody></tbody>
-            </table>
-            <!-- FIVE-DAY FORECAST -->
-            <table class="table" id="daily-forecast">
-              <thead class="text-uppercase">
-                <tr>
-                  <th>Day</th>
-                  <th>High/Low</th>
-                  <th colspan="2">Weather</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
+          <div class="row" id="results">
+            <div class="col-md-6">
+              <!-- CURRENT WEATHER -->
+              <div id="current-weather"></div>
+              <!-- BUTTONS -->
+              <form>
+                <fieldset>
+                  <legend aria-label="Display the temperature in"></legend>
+                  <div class="btn-group" data-toggle="buttons">
+                    <label class="btn active" id="to-fahrenheit">
+                      <input type="radio" name="options" checked>
+                      <span>&deg;F</span>
+                    </label>
+                    <label class="btn" id="to-celsius">
+                      <input type="radio" name="options">
+                      <span>&deg;C</span>
+                    </label>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+            <div class="col-md-6">
+              <!-- HOURLY FORECAST -->
+              <table class="table" id="hourly-forecast">
+                <tbody></tbody>
+              </table>
+              <!-- FIVE-DAY FORECAST -->
+              <table class="table" id="daily-forecast">
+                <thead class="text-uppercase">
+                  <tr>
+                    <th>Day</th>
+                    <th>High/Low</th>
+                    <th colspan="2">Weather</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
-    <!-- FOOTER -->
-    <footer><span>Coded by <a href="../portfolio" target="_blank">Autumn Bullard</a></span><span>Powered by <a href="https://darksky.net/poweredby" target="_blank">Dark Sky</a></span></footer>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="js/script.js"></script>
-</body>
-
+      </main>
+      <!-- FOOTER -->
+      <footer><span>Coded by <a href="../portfolio" target="_blank">Autumn Bullard</a></span><span>Powered by <a href="https://darksky.net/poweredby" target="_blank">Dark Sky</a></span></footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
 </html>
