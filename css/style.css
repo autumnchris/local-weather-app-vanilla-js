@@ -19,9 +19,9 @@ body {
 }
 
 h1 {
-  font-size: 2.3rem;
+  font-size: 1.2em;
   letter-spacing: 4px;
-  margin: 6% 3% 3%;
+  margin: 6% 0;
 }
 
 .well {
@@ -173,6 +173,11 @@ footer a:focus {
 }
 
 @media only screen and (min-width: 550px) {
+
+  h1 {
+    font-size: 1.6em;
+    margin: 6% 0 3%;
+  }
 
   .table {
     font-size: 1.2rem;
