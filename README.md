@@ -14,7 +14,8 @@ My project for the [Show the Local Weather challenge](https://www.freecodecamp.o
 
 ## Other Tools Used
 * [Dark Sky weather API](https://darksky.net/dev)
-* [freegeoip.net location API](https://freegeoip.net)
+* Geolocation
+* [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/start)
 * [Weather Icons](https://erikflowers.github.io/weather-icons)
 * [Bootstrap 3 JS](https://getbootstrap.com/docs/3.3/javascript)
 * [Font Awesome](http://fontawesome.io)
