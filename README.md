@@ -4,20 +4,22 @@ My project for the [Show the Local Weather challenge](https://www.freecodecamp.o
 
 ---
 
+## User Stories
+1. I can see the weather in my current location.
+2. I can see a different icon or background image (e.g. snowy mountain, hot desert) depending on the weather.
+3. I can push a button to toggle between Fahrenheit and Celsius.
+
 ## Built With
 * JavaScript
 * CSS3
 * [jQuery](https://jquery.com)
 * AJAX
-* [Bootstrap 3 CSS](https://getbootstrap.com/docs/3.3/css)
+* [Bootstrap](https://getbootstrap.com)
 * HTML5
-
-## Other Tools Used
 * [Dark Sky weather API](https://darksky.net/dev)
 * Geolocation
 * [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/start)
 * [Weather Icons](https://erikflowers.github.io/weather-icons)
-* [Bootstrap 3 JS](https://getbootstrap.com/docs/3.3/javascript)
 * [Font Awesome](http://fontawesome.io)
 * [Google Fonts](https://fonts.google.com)
 
