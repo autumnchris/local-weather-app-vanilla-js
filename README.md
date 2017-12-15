@@ -1,6 +1,6 @@
 # Local Weather App (jQuery)
 
-My project for the [Show the Local Weather challenge](https://www.freecodecamp.org/challenges/show-the-local-weather) as part of the curriculum for the Front End Development Certification on [Free Code Camp](https://www.freecodecamp.org). Made with jQuery.
+My project for the [Show the Local Weather challenge](https://www.freecodecamp.org/challenges/show-the-local-weather) as part of the curriculum for the Front End Development Certification on [Free Code Camp](https://www.freecodecamp.org). Built with jQuery.
 
 ---
 
