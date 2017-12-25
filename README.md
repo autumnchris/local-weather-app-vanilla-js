@@ -25,4 +25,4 @@ My project for the [Show the Local Weather challenge](https://www.freecodecamp.o
 
 ## Demo
 
-View project [here](https://autumnchris.github.io/local-weather-app-jquery).
+View project demo at [https://autumnchris.github.io/local-weather-app-jquery](https://autumnchris.github.io/local-weather-app-jquery).
