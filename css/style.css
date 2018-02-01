@@ -3,8 +3,11 @@
   src: url(../fonts/weather-icons.ttf);
 }
 
-html {
+* {
   box-sizing: border-box;
+}
+
+html {
   height: 100%;
 }
 
