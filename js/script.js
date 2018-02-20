@@ -1,4 +1,4 @@
-function success(position) {
+function getSuccess(position) {
   var lat = position.coords.latitude;
   var lng = position.coords.longitude;
   var weatherAPIKey = '6e76605e3f2672147d041fcb0df33e81';
@@ -108,8 +108,8 @@ function success(position) {
   });
 }
 
-function error(err) {
+function getError(err) {
   $('.well').html('<div class="alert alert-warning text-center"><span class="fa fa-warning fa-lg fa-fw"></span> ' + err.message + '.</div>');
 }
 
-navigator.geolocation.getCurrentPosition(success, error);
+navigator.geolocation.getCurrentPosition(getSuccess, getError);
