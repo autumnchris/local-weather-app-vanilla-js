@@ -20,7 +20,7 @@ My project for the [Show the Local Weather challenge](https://www.freecodecamp.o
 * Geolocation
 * [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/start)
 * [Weather Icons](https://erikflowers.github.io/weather-icons)
-* [Font Awesome](http://fontawesome.io)
+* [Font Awesome](https://fontawesome.com)
 * [Google Fonts](https://fonts.google.com)
 
 ## Demo
