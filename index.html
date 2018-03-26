@@ -20,24 +20,24 @@
       <main>
         <div class="well center-block">
           <!-- LOADING SPINNER -->
-          <div id="spinner">
+          <div class="spinner">
             <span class="fa fa-refresh fa-spin fa-fw"></span>
             <span class="sr-only">Loading...</span>
           </div>
-          <div class="row" id="results">
+          <div class="row results">
             <div class="col-md-6">
               <!-- CURRENT WEATHER -->
-              <div id="current-weather"></div>
+              <div class="current-weather"></div>
               <!-- BUTTONS -->
               <form>
                 <fieldset>
                   <legend aria-label="Display the temperature in"></legend>
                   <div class="btn-group" data-toggle="buttons">
-                    <label class="btn active" id="to-fahrenheit">
+                    <label class="btn active to-fahrenheit">
                       <input type="radio" name="options" checked>
                       <span>&deg;F</span>
                     </label>
-                    <label class="btn" id="to-celsius">
+                    <label class="btn to-celsius">
                       <input type="radio" name="options">
                       <span>&deg;C</span>
                     </label>
@@ -47,11 +47,11 @@
             </div>
             <div class="col-md-6">
               <!-- HOURLY FORECAST -->
-              <table class="table" id="hourly-forecast">
+              <table class="table hourly-forecast">
                 <tbody></tbody>
               </table>
               <!-- FIVE-DAY FORECAST -->
-              <table class="table" id="daily-forecast">
+              <table class="table daily-forecast">
                 <thead class="text-uppercase">
                   <tr>
                     <th>Day</th>

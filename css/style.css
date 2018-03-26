@@ -33,29 +33,29 @@ h1 {
   max-width: 1000px;
 }
 
-#spinner {
+.spinner {
   margin: 3%;
   font-size: 4.5rem;
   text-shadow: 2px 2px 1px #004966;
 }
 
-#results {
+.results {
   display: none;
 }
 
-#location,
-#weather {
+.location,
+.weather {
   font-size: 1.2em;
   margin: 2%;
   text-shadow: 1px 1px 1px #004966;
 }
 
-#temp {
+.temp {
   font-size: 5em;
   text-shadow: 2px 2px 1px #004966;
 }
 
-#weather-icon {
+.weather-icon {
   font: 4em "Weather Icons";
   text-shadow: 2px 2px 1px #004966;
 }
@@ -96,46 +96,46 @@ legend {
   font: 1.5rem "Weather Icons";
 }
 
-#hourly-forecast {
+.hourly-forecast {
   background-color: #004966;
   display: -webkit-flex;
   display: flex;
 }
 
-#hourly-forecast tbody {
+.hourly-forecast tbody {
   display: -webkit-flex;
   display: flex;
   overflow-x: auto;
   position: relative;
 }
 
-#hourly-forecast tbody tr {
+.hourly-forecast tbody tr {
   display: table-cell;
   padding: 18px;
 }
 
-#hourly-forecast tbody tr td {
+.hourly-forecast tbody tr td {
   border: none;
   display: table-row;
   line-height: 25px;
 }
 
-#daily-forecast thead tr th {
+.daily-forecast thead tr th {
   background-color: #004966;
   border: none;
   font-size: 1rem;
   text-align: center;
 }
 
-#daily-forecast tbody tr td {
+.daily-forecast tbody tr td {
   border-top: 1px solid #004966;
   line-height: 22px;
   text-align: center;
 }
 
-#hourly-forecast tbody tr td:nth-child(4),
-#daily-forecast tbody tr td:nth-child(3),
-#daily-forecast tbody tr td:nth-child(5) {
+.hourly-forecast tbody tr td:nth-child(4),
+.daily-forecast tbody tr td:nth-child(3),
+.daily-forecast tbody tr td:nth-child(5) {
   display: none;
 }
 
@@ -187,11 +187,11 @@ footer a:focus {
     width: 460px;
   }
 
-  #daily-forecast tbody tr td {
+  .daily-forecast tbody tr td {
     text-align: left;
   }
 
-  #daily-forecast tbody tr td:nth-child(5) {
+  .daily-forecast tbody tr td:nth-child(5) {
     display: table-cell;
   }
 

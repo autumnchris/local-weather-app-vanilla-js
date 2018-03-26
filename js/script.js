@@ -20,13 +20,11 @@ function getSuccess(position) {
     var tempC = Math.round((weatherData[0].currently.temperature - 32) * (5/9)) + '&deg;C';
     var weatherIcon = 'wi wi-forecast-io-' + weatherData[0].currently.icon;
     var weather = weatherData[0].currently.summary;
-    var currentWeather = '<div id="location">' + location + '</div>' +
-    '<div id="temp">' + tempF + '</div>' +
-    '<div>' +
-      '<span class="' + weatherIcon + '" id="weather-icon"></span>' +
-    '</div>' +
-    '<div id="weather">' + weather + '</div>';
-    $('#current-weather').html(currentWeather);
+    var currentWeather = '<div class="location">' + location + '</div>' +
+    '<div class="temp">' + tempF + '</div>' +
+    '<div class="' + weatherIcon + ' weather-icon"></div>' +
+    '<div class="weather">' + weather + '</div>';
+    $('.current-weather').html(currentWeather);
 
     for(var i = 0; i < 24; i++) {
       var hourOfDay = new Date(weatherData[0].hourly.data[i].time * 1000).getHours();
@@ -54,7 +52,7 @@ function getSuccess(position) {
         '<td>' + hourlyTempF + '</td>' +
         '<td>' + hourlyTempC + '</td>' +
       '</tr>';
-      $('#hourly-forecast tbody').append(hourlyForecast);
+      $('.hourly-forecast tbody').append(hourlyForecast);
     }
 
     for(var i = 0; i < 5; i++) {
@@ -82,27 +80,27 @@ function getSuccess(position) {
         '</td>' +
         '<td>' + dailySummary + '</td>' +
       '</tr>';
-      $('#daily-forecast tbody').append(dailyForecast);
+      $('.daily-forecast tbody').append(dailyForecast);
     }
 
-    $('#to-celsius').click(function() {
-      $('#temp').html(tempC);
-      $('#hourly-forecast tbody tr td:nth-child(3)').css('display', 'none');
-      $('#hourly-forecast tbody tr td:nth-child(4)').css('display', 'table-row');
-      $('#daily-forecast tbody tr td:nth-child(2)').css('display', 'none');
-      $('#daily-forecast tbody tr td:nth-child(3)').css('display', 'table-cell');
+    $('.to-celsius').click(function() {
+      $('.temp').html(tempC);
+      $('.hourly-forecast tbody tr td:nth-child(3)').css('display', 'none');
+      $('.hourly-forecast tbody tr td:nth-child(4)').css('display', 'table-row');
+      $('.daily-forecast tbody tr td:nth-child(2)').css('display', 'none');
+      $('.daily-forecast tbody tr td:nth-child(3)').css('display', 'table-cell');
     });
 
-    $('#to-fahrenheit').click(function() {
-      $('#temp').html(tempF);
-      $('#hourly-forecast tbody tr td:nth-child(3)').css('display', 'table-row');
-      $('#hourly-forecast tbody tr td:nth-child(4)').css('display', 'none');
-      $('#daily-forecast tbody tr td:nth-child(2)').css('display', 'table-cell');
-      $('#daily-forecast tbody tr td:nth-child(3)').css('display', 'none');
+    $('.to-fahrenheit').click(function() {
+      $('.temp').html(tempF);
+      $('.hourly-forecast tbody tr td:nth-child(3)').css('display', 'table-row');
+      $('.hourly-forecast tbody tr td:nth-child(4)').css('display', 'none');
+      $('.daily-forecast tbody tr td:nth-child(2)').css('display', 'table-cell');
+      $('.daily-forecast tbody tr td:nth-child(3)').css('display', 'none');
     });
 
-    $('#spinner').css('display', 'none');
-    $('#results').css('display', 'block');
+    $('.spinner').css('display', 'none');
+    $('.results').css('display', 'block');
   }).fail(function() {
     $('.well').html('<div class="alert alert-warning text-center"><span class="fa fa-warning fa-lg fa-fw"></span> Unable to load current weather.</div>');
   });
