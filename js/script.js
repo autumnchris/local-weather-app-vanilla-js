@@ -1,11 +1,12 @@
 function getSuccess(position) {
-  var lat = position.coords.latitude;
-  var lng = position.coords.longitude;
-  var weatherAPIKey = '6e76605e3f2672147d041fcb0df33e81';
+  var lat = position.coords.latitude,
+  lng = position.coords.longitude,
+  geocodingAPIKey = 'AIzaSyDF-M0gmMFMWJ2zO0tfKNs8Y0zbRUJaACA',
+  weatherAPIKey = '6e76605e3f2672147d041fcb0df33e81';
 
   var geocodingAPI = $.ajax({
     type: 'GET',
-    url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng
+    url: 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lng + '&key=' + geocodingAPIKey
   });
 
   var weatherAPI = $.ajax({
@@ -14,36 +15,51 @@ function getSuccess(position) {
   });
 
   $.when(geocodingAPI, weatherAPI).done(function(loc, weatherData) {
-
-    var location = loc[0].results[0].address_components[3].long_name;
-    var tempF = Math.round(weatherData[0].currently.temperature) + '&deg;F';
-    var tempC = Math.round((weatherData[0].currently.temperature - 32) * (5/9)) + '&deg;C';
-    var weatherIcon = 'wi wi-forecast-io-' + weatherData[0].currently.icon;
-    var weather = weatherData[0].currently.summary;
-    var currentWeather = '<div class="location">' + location + '</div>' +
+    var i,
+    hourOfDay,
+    hourlyIcon,
+    hourlyTempF,
+    hourlyTempC,
+    hourlyForecast,
+    days,
+    dayOfWeek,
+    highLowF,
+    highLowC,
+    dailyIcon,
+    dailySummary,
+    dailyForecast,
+    location = loc[0].results[0].address_components[3].long_name,
+    tempF = Math.round(weatherData[0].currently.temperature) + '&deg;F',
+    tempC = Math.round((weatherData[0].currently.temperature - 32) * (5/9)) + '&deg;C',
+    weatherIcon = 'wi wi-forecast-io-' + weatherData[0].currently.icon,
+    weather = weatherData[0].currently.summary,
+    currentWeather = '<div class="location">' + location + '</div>' +
     '<div class="temp">' + tempF + '</div>' +
     '<div class="' + weatherIcon + ' weather-icon"></div>' +
     '<div class="weather">' + weather + '</div>';
     $('.current-weather').html(currentWeather);
 
-    for(var i = 0; i < 24; i++) {
-      var hourOfDay = new Date(weatherData[0].hourly.data[i].time * 1000).getHours();
+    for (i = 0; i < 24; i++) {
+      hourOfDay = new Date(weatherData[0].hourly.data[i].time * 1000).getHours();
+
       if (hourOfDay < 12) {
-        if( hourOfDay === 0) {
+
+        if ( hourOfDay === 0) {
           hourOfDay += 12;
         }
         hourOfDay += 'AM';
       }
       else {
-        if(hourOfDay > 12) {
+
+        if (hourOfDay > 12) {
           hourOfDay -= 12;
         }
         hourOfDay += 'PM';
       }
-      var hourlyIcon = weatherData[0].hourly.data[i].icon;
-      var hourlyTempF = Math.round(weatherData[0].hourly.data[i].temperature) + '&deg;';
-      var hourlyTempC = Math.round((weatherData[0].hourly.data[i].temperature - 32) * (5/9)) + '&deg;';
-      var hourlyForecast = '<tr>' +
+      hourlyIcon = weatherData[0].hourly.data[i].icon;
+      hourlyTempF = Math.round(weatherData[0].hourly.data[i].temperature) + '&deg;';
+      hourlyTempC = Math.round((weatherData[0].hourly.data[i].temperature - 32) * (5/9)) + '&deg;';
+      hourlyForecast = '<tr>' +
         '<td>' + hourOfDay + '</td>' +
         '<td>' +
           '<span class="wi wi-forecast-io-' + hourlyIcon + '"></span>' +
@@ -55,8 +71,8 @@ function getSuccess(position) {
       $('.hourly-forecast tbody').append(hourlyForecast);
     }
 
-    for(var i = 0; i < 5; i++) {
-      var days = [
+    for(i = 0; i < 5; i++) {
+      days = [
         'Sun',
         'Mon',
         'Tue',
@@ -65,12 +81,12 @@ function getSuccess(position) {
         'Fri',
         'Sat'
       ];
-      var dayOfWeek = days[new Date(weatherData[0].daily.data[i].time * 1000).getDay()];
-      var highLowF = Math.round(weatherData[0].daily.data[i].temperatureMax) + '&deg;/' + Math.round(weatherData[0].daily.data[i].temperatureMin) + '&deg;';
-      var highLowC = Math.round((weatherData[0].daily.data[i].temperatureMax - 32) * (5/9)) + '&deg;/' + Math.round((weatherData[0].daily.data[i].temperatureMin - 32) * (5/9)) + '&deg;';
-      var dailyIcon = weatherData[0].daily.data[i].icon;
-      var dailySummary = weatherData[0].daily.data[i].summary;
-      var dailyForecast = '<tr>' +
+      dayOfWeek = days[new Date(weatherData[0].daily.data[i].time * 1000).getDay()];
+      highLowF = Math.round(weatherData[0].daily.data[i].temperatureMax) + '&deg;/' + Math.round(weatherData[0].daily.data[i].temperatureMin) + '&deg;';
+      highLowC = Math.round((weatherData[0].daily.data[i].temperatureMax - 32) * (5/9)) + '&deg;/' + Math.round((weatherData[0].daily.data[i].temperatureMin - 32) * (5/9)) + '&deg;';
+      dailyIcon = weatherData[0].daily.data[i].icon;
+      dailySummary = weatherData[0].daily.data[i].summary;
+      dailyForecast = '<tr>' +
         '<td>' + dayOfWeek + '</td>' +
         '<td>' + highLowF + '</td>' +
         '<td>' + highLowC + '</td>' +
