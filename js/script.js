@@ -14,66 +14,58 @@ function getSuccess(position) {
     url: `https://api.darksky.net/forecast/${weatherAPIKey}/${lat},${lng}`
   });
 
-  $.when(geocodingAPI, weatherAPI).done((loc, weatherData) => {
-    let i;
-    let hourOfDay;
-    let hourlyIcon;
-    let hourlyTempF;
-    let hourlyTempC;
-    let hourlyForecast;
-    let days;
-    let dayOfWeek;
-    let highLowF;
-    let highLowC;
-    let dailyIcon;
-    let dailySummary;
-    let dailyForecast;
-
+  $.when(geocodingAPI, weatherAPI).done((loc, weather) => {
     const location = loc[0].results[0].address_components[3].long_name;
-    const tempF = `${Math.round(weatherData[0].currently.temperature)}&deg;F`;
-    const tempC = `${Math.round((weatherData[0].currently.temperature - 32) * (5/9))}&deg;C`;
-    const weatherIcon = `wi wi-forecast-io-${weatherData[0].currently.icon}`;
-    const weather = weatherData[0].currently.summary;
+    const currentData = {
+      icon: `wi wi-forecast-io-${weather[0].currently.icon}`,
+      summary: weather[0].currently.summary,
+      tempF: `${Math.round(weather[0].currently.temperature)}&deg;F`,
+      tempC: `${Math.round((weather[0].currently.temperature - 32) * (5/9))}&deg;C`
+    };
     const currentWeather = `<div class="location">${location}</div>
-    <div class="temp">${tempF}</div>
-    <div class="${weatherIcon} weather-icon"></div>
-    <div class="weather">${weather}</div>`;
+    <div class="temp">${currentData.tempF}</div>
+    <div class="${currentData.icon} weather-icon"></div>
+    <div class="weather">${currentData.summary}</div>`;
     $('.current-weather').html(currentWeather);
 
+    let i;
+
     for (i = 0; i < 24; i++) {
-      hourOfDay = new Date(weatherData[0].hourly.data[i].time * 1000).getHours();
+      const hourlyData = {
+        icon: weather[0].hourly.data[i].icon,
+        tempF: `${Math.round(weather[0].hourly.data[i].temperature)}&deg;`,
+        tempC: `${Math.round((weather[0].hourly.data[i].temperature - 32) * (5/9))}&deg;`,
+        time: new Date(weather[0].hourly.data[i].time * 1000).getHours()
+      };
 
-      if (hourOfDay < 12) {
+      if (hourlyData.time < 12) {
 
-        if ( hourOfDay === 0) {
-          hourOfDay += 12;
+        if (hourlyData.time === 0) {
+          hourlyData.time += 12;
         }
-        hourOfDay += 'AM';
+        hourlyData.time += 'AM';
       }
       else {
 
-        if (hourOfDay > 12) {
-          hourOfDay -= 12;
+        if (hourlyData.time > 12) {
+          hourlyData.time -= 12;
         }
-        hourOfDay += 'PM';
+        hourlyData.time += 'PM';
       }
-      hourlyIcon = weatherData[0].hourly.data[i].icon;
-      hourlyTempF = `${Math.round(weatherData[0].hourly.data[i].temperature)}&deg;`;
-      hourlyTempC = `${Math.round((weatherData[0].hourly.data[i].temperature - 32) * (5/9))}&deg;`;
-      hourlyForecast = `<tr>
-        <td>${hourOfDay}</td>
+      const hourlyForecast = `<tr>
+        <td>${hourlyData.time}</td>
         <td>
-          <span class="wi wi-forecast-io-${hourlyIcon}"></span>
-          <span class="sr-only">${hourlyIcon}</span>
+          <span class="wi wi-forecast-io-${hourlyData.icon}"></span>
+          <span class="sr-only">${hourlyData.icon}</span>
         </td>
-        <td>${hourlyTempF}</td>
-        <td>${hourlyTempC}</td>
+        <td>${hourlyData.tempF}</td>
+        <td>${hourlyData.tempC}</td>
       </tr>`;
       $('.hourly-forecast tbody').append(hourlyForecast);
     }
 
     for (i = 0; i < 5; i++) {
-      days = [
+      const daysOfWeek = [
         'Sun',
         'Mon',
         'Tue',
@@ -82,26 +74,28 @@ function getSuccess(position) {
         'Fri',
         'Sat'
       ];
-      dayOfWeek = days[new Date(weatherData[0].daily.data[i].time * 1000).getDay()];
-      highLowF = `${Math.round(weatherData[0].daily.data[i].temperatureMax)}&deg;/${Math.round(weatherData[0].daily.data[i].temperatureMin)}&deg;`;
-      highLowC = `${Math.round((weatherData[0].daily.data[i].temperatureMax - 32) * (5/9))}&deg;/${Math.round((weatherData[0].daily.data[i].temperatureMin - 32) * (5/9))}&deg;`;
-      dailyIcon = weatherData[0].daily.data[i].icon;
-      dailySummary = weatherData[0].daily.data[i].summary;
-      dailyForecast = `<tr>
-        <td>${dayOfWeek}</td>
-        <td>${highLowF}</td>
-        <td>${highLowC}</td>
+      const dailyData = {
+        day: daysOfWeek[new Date(weather[0].daily.data[i].time * 1000).getDay()],
+        highLowF: `${Math.round(weather[0].daily.data[i].temperatureMax)}&deg;/${Math.round(weather[0].daily.data[i].temperatureMin)}&deg;`,
+        highLowC: `${Math.round((weather[0].daily.data[i].temperatureMax - 32) * (5/9))}&deg;/${Math.round((weather[0].daily.data[i].temperatureMin - 32) * (5/9))}&deg;`,
+        icon: weather[0].daily.data[i].icon,
+        summary: weather[0].daily.data[i].summary
+      };
+      const dailyForecast = `<tr>
+        <td>${dailyData.day}</td>
+        <td>${dailyData.highLowF}</td>
+        <td>${dailyData.highLowC}</td>
         <td>
-          <span class="wi wi-forecast-io-${dailyIcon}"></span>
-          <span class="sr-only">${dailyIcon}</span>
+          <span class="wi wi-forecast-io-${dailyData.icon}"></span>
+          <span class="sr-only">${dailyData.icon}</span>
         </td>
-        <td>${dailySummary}</td>
+        <td>${dailyData.summary}</td>
       </tr>`;
       $('.daily-forecast tbody').append(dailyForecast);
     }
 
     $('.to-celsius').click(() => {
-      $('.temp').html(tempC);
+      $('.temp').html(currentData.tempC);
       $('.hourly-forecast tbody tr td:nth-child(3)').css('display', 'none');
       $('.hourly-forecast tbody tr td:nth-child(4)').css('display', 'table-row');
       $('.daily-forecast tbody tr td:nth-child(2)').css('display', 'none');
@@ -109,7 +103,7 @@ function getSuccess(position) {
     });
 
     $('.to-fahrenheit').click(() => {
-      $('.temp').html(tempF);
+      $('.temp').html(currentData.tempF);
       $('.hourly-forecast tbody tr td:nth-child(3)').css('display', 'table-row');
       $('.hourly-forecast tbody tr td:nth-child(4)').css('display', 'none');
       $('.daily-forecast tbody tr td:nth-child(2)').css('display', 'table-cell');
