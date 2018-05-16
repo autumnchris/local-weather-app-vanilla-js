@@ -15,87 +15,101 @@ function getSuccess(position) {
   });
 
   $.when(geocodingAPI, weatherAPI).done((loc, weather) => {
-    const location = loc[0].results[0].address_components[3].long_name;
-    const currentData = {
-      icon: `wi wi-forecast-io-${weather[0].currently.icon}`,
-      summary: weather[0].currently.summary,
-      tempF: `${Math.round(weather[0].currently.temperature)}&deg;F`,
-      tempC: `${Math.round((weather[0].currently.temperature - 32) * (5/9))}&deg;C`
+    const data = {
+      location: loc[0].results[0].address_components[3].long_name,
+      current: {
+        icon: `wi wi-forecast-io-${weather[0].currently.icon}`,
+        summary: weather[0].currently.summary,
+        tempF: `${Math.round(weather[0].currently.temperature)}&deg;F`,
+        tempC: `${Math.round((weather[0].currently.temperature - 32) * (5/9))}&deg;C`
+      },
+      hourly: {
+        icon: null,
+        tempF: null,
+        tempC: null,
+        time: null,
+        forecast: null
+      },
+      daily: {
+        daysOfWeek: [
+          'Sun',
+          'Mon',
+          'Tue',
+          'Wed',
+          'Thu',
+          'Fri',
+          'Sat'
+        ],
+        day: null,
+        highLowF: null,
+        highLowC: null,
+        icon: null,
+        summary:null,
+        forecast: null
+      }
     };
-    const currentWeather = `<div class="location">${location}</div>
-    <div class="temp">${currentData.tempF}</div>
-    <div class="${currentData.icon} weather-icon"></div>
-    <div class="weather">${currentData.summary}</div>`;
+    const currentWeather = `<div class="location">${data.location}</div>
+    <div class="temp">${data.current.tempF}</div>
+    <div class="${data.current.icon} weather-icon"></div>
+    <div class="weather">${data.current.summary}</div>`;
     $('.current-weather').html(currentWeather);
 
     let i;
 
     for (i = 0; i < 24; i++) {
-      const hourlyData = {
-        icon: weather[0].hourly.data[i].icon,
-        tempF: `${Math.round(weather[0].hourly.data[i].temperature)}&deg;`,
-        tempC: `${Math.round((weather[0].hourly.data[i].temperature - 32) * (5/9))}&deg;`,
-        time: new Date(weather[0].hourly.data[i].time * 1000).getHours()
-      };
+      data.hourly.icon = weather[0].hourly.data[i].icon;
+      data.hourly.tempF = `${Math.round(weather[0].hourly.data[i].temperature)}&deg;`;
+      data.hourly.tempC = `${Math.round((weather[0].hourly.data[i].temperature - 32) * (5/9))}&deg;`;
+      data.hourly.time = new Date(weather[0].hourly.data[i].time * 1000).getHours();
 
-      if (hourlyData.time < 12) {
+      if (data.hourly.time < 12) {
 
-        if (hourlyData.time === 0) {
-          hourlyData.time += 12;
+        if (data.hourly.time === 0) {
+          data.hourly.time += 12;
         }
-        hourlyData.time += 'AM';
+        data.hourly.time += 'AM';
       }
       else {
 
-        if (hourlyData.time > 12) {
-          hourlyData.time -= 12;
+        if (data.hourly.time > 12) {
+          data.hourly.time -= 12;
         }
-        hourlyData.time += 'PM';
+        data.hourly.time += 'PM';
       }
-      const hourlyForecast = `<tr>
-        <td>${hourlyData.time}</td>
+      data.hourly.forecast = `<tr>
+        <td>${data.hourly.time}</td>
         <td>
-          <span class="wi wi-forecast-io-${hourlyData.icon}"></span>
-          <span class="sr-only">${hourlyData.icon}</span>
+          <span class="wi wi-forecast-io-${data.hourly.icon}"></span>
+          <span class="sr-only">${data.hourly.icon}</span>
         </td>
-        <td>${hourlyData.tempF}</td>
-        <td>${hourlyData.tempC}</td>
+        <td>${data.hourly.tempF}</td>
+        <td>${data.hourly.tempC}</td>
       </tr>`;
-      $('.hourly-forecast tbody').append(hourlyForecast);
+      $('.hourly-forecast tbody').append(data.hourly.forecast);
     }
 
     for (i = 0; i < 5; i++) {
-      const daysOfWeek = [
-        'Sun',
-        'Mon',
-        'Tue',
-        'Wed',
-        'Thu',
-        'Fri',
-        'Sat'
-      ];
-      const dailyData = {
-        day: daysOfWeek[new Date(weather[0].daily.data[i].time * 1000).getDay()],
-        highLowF: `${Math.round(weather[0].daily.data[i].temperatureMax)}&deg;/${Math.round(weather[0].daily.data[i].temperatureMin)}&deg;`,
-        highLowC: `${Math.round((weather[0].daily.data[i].temperatureMax - 32) * (5/9))}&deg;/${Math.round((weather[0].daily.data[i].temperatureMin - 32) * (5/9))}&deg;`,
-        icon: weather[0].daily.data[i].icon,
-        summary: weather[0].daily.data[i].summary
-      };
-      const dailyForecast = `<tr>
-        <td>${dailyData.day}</td>
-        <td>${dailyData.highLowF}</td>
-        <td>${dailyData.highLowC}</td>
+      data.daily.day = data.daily.daysOfWeek[new Date(weather[0].daily.data[i].time * 1000).getDay()];
+      data.daily.highLowF = `${Math.round(weather[0].daily.data[i].temperatureMax)}&deg;/${Math.round(weather[0].daily.data[i].temperatureMin)}&deg;`;
+      data.daily.highLowC = `${Math.round((weather[0].daily.data[i].temperatureMax - 32) * (5/9))}&deg;/${Math.round((weather[0].daily.data[i].temperatureMin - 32) * (5/9))}&deg;`;
+      data.daily.icon = weather[0].daily.data[i].icon;
+      data.daily.summary = weather[0].daily.data[i].summary;
+
+      data.daily.forecast = `<tr>
+        <td>${data.daily.day}</td>
+        <td>${data.daily.highLowF}</td>
+        <td>${data.daily.highLowC}</td>
         <td>
-          <span class="wi wi-forecast-io-${dailyData.icon}"></span>
-          <span class="sr-only">${dailyData.icon}</span>
+          <span class="wi wi-forecast-io-${data.daily.icon}"></span>
+          <span class="sr-only">${data.daily.icon}</span>
         </td>
-        <td>${dailyData.summary}</td>
+        <td>${data.daily.summary}</td>
       </tr>`;
-      $('.daily-forecast tbody').append(dailyForecast);
+      $('.daily-forecast tbody').append(data.daily.forecast);
     }
 
     $('.to-celsius').click(() => {
-      $('.temp').html(currentData.tempC);
+      $('.temp').html(data.current.tempC);
       $('.hourly-forecast tbody tr td:nth-child(3)').css('display', 'none');
       $('.hourly-forecast tbody tr td:nth-child(4)').css('display', 'table-row');
       $('.daily-forecast tbody tr td:nth-child(2)').css('display', 'none');
@@ -103,7 +117,7 @@ function getSuccess(position) {
     });
 
     $('.to-fahrenheit').click(() => {
-      $('.temp').html(currentData.tempF);
+      $('.temp').html(data.current.tempF);
       $('.hourly-forecast tbody tr td:nth-child(3)').css('display', 'table-row');
       $('.hourly-forecast tbody tr td:nth-child(4)').css('display', 'none');
       $('.daily-forecast tbody tr td:nth-child(2)').css('display', 'table-cell');
