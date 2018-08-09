@@ -9,10 +9,10 @@ My project for the [Show the Local Weather challenge](https://learn.freecodecamp
 * CSS3
 * [jQuery](https://jquery.com)
 * AJAX
-* [Bootstrap](https://getbootstrap.com)
 * HTML5
 * [Dark Sky weather API](https://darksky.net/dev)
 * Geolocation
+* [Moment.js](https://momentjs.com)
 * [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/start)
 * [Weather Icons](https://erikflowers.github.io/weather-icons)
 * [Font Awesome](https://fontawesome.com)
