@@ -85,13 +85,13 @@ function getSuccess(position) {
     $('.card').css('display', 'grid');
   }).fail(() => {
     $('.spinner').css('display', 'none');
-    $('.error-message').html('<span class="fa fa-exclamation-triangle fa-lg fa-fw"></span> Unable to load current weather.').css('display', 'block');
+    $('.error-message').html('<span class="fa fa-exclamation-circle fa-lg fa-fw"></span> Unable to load current weather.').css('display', 'block');
   });
 }
 
 function getError(err) {
   $('.spinner').css('display', 'none');
-  $('.error-message').html(`<span class="fa fa-exclamation-triangle fa-lg fa-fw"></span> ${err.message}.`).css('display', 'block');
+  $('.error-message').html(`<span class="fa fa-exclamation-circle fa-lg fa-fw"></span> ${err.message}.`).css('display', 'block');
 }
 
 navigator.geolocation.getCurrentPosition(getSuccess, getError);
