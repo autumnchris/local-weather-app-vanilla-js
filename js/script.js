@@ -24,6 +24,8 @@ function getSuccess(position) {
     $('.temp').html(`${Math.round(weather[0].currently.temperature)}&deg;F`);
     $('.weather-icon').attr('class', `wi wi-forecast-io-${weather[0].currently.icon} weather-icon`);
     $('.weather').html(weather[0].currently.summary);
+    $('.sunrise').html(moment(weather[0].daily.data[0].sunriseTime * 1000).format('h:mm A'));
+    $('.sunset').html(moment(weather[0].daily.data[0].sunsetTime * 1000).format('h:mm A'));
 
 
     hours = hours.filter(hour => {

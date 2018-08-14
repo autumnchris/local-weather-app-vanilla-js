@@ -60,6 +60,22 @@ main {
   text-shadow: 1px 1px 1px #004966;
 }
 
+.sunrise-sunset {
+  margin: 25px auto 0;
+}
+
+.sunrise-sunset th {
+  background: #004966;
+  font-size: 0.7rem;
+  padding: 10px;
+  text-transform: uppercase;
+  width: 100px;
+}
+
+.sunrise-sunset td {
+  padding: 10px;
+}
+
 .switch {
   background: #004966;
   border: 3px solid #004966;
@@ -119,12 +135,12 @@ main {
   }
 }
 
-table {
+.col:last-child table {
   margin: auto;
   width: 215px;
 }
 
-.hourly-forecast {
+.col:last-child .hourly-forecast {
   background: #004966;
   display: flex;
   margin-bottom: 20px;
@@ -222,7 +238,7 @@ footer a:focus {
 
 @media only screen and (min-width: 350px) {
 
-  table {
+  .col:last-child table {
     width: 285px;
   }
 }
@@ -234,7 +250,7 @@ footer a:focus {
     padding: 6% 0 3%;
   }
 
-  table {
+  .col:last-child table {
     width: 440px;
   }
 
