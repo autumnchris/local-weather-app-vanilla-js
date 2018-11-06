@@ -84,7 +84,6 @@ main {
   margin: 25px 0;
   padding: 4px 8px;
   position: relative;
-  text-align: right;
   width: 70px;
 }
 
@@ -94,25 +93,24 @@ main {
   bottom: 1px;
   content: "";
   height: 26px;
-  left: 1px;
   position: absolute;
   width: 26px;
 }
 
-.fahrenheit {
+.f {
   text-align: right;
 }
 
-.fahrenheit:before {
+.f:before {
   animation: toggleF 0.15s ease-out;
   left: 1px;
 }
 
-.celsius {
+.c {
   text-align: left;
 }
 
-.celsius:before {
+.c:before {
   animation: toggleC 0.15s ease-out;
   left: 37px;
 }
@@ -161,10 +159,6 @@ main {
   line-height: 25px;
 }
 
-.hourly-forecast td:last-child span:last-child {
-  display: none;
-}
-
 .hourly-forecast .wi {
   font-family: "Weather Icons";
   font-size: 1rem;
@@ -190,10 +184,6 @@ main {
 .daily-forecast tr td:last-child {
   display: none;
   text-align: left;
-}
-
-.daily-forecast td:nth-child(2) span:last-child {
-  display: none;
 }
 
 .daily-forecast .wi {

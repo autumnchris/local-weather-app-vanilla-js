@@ -15,6 +15,7 @@ My project for the [Show the Local Weather challenge](https://learn.freecodecamp
 * [Moment.js](https://momentjs.com)
 * [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/start)
 * [Weather Icons](https://erikflowers.github.io/weather-icons)
+* LocalStorage
 * [Font Awesome](https://fontawesome.com)
 * [Google Fonts](https://fonts.google.com)
 
