@@ -4,76 +4,17 @@
     <meta charset="utf-8">
     <title>Local Weather App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/weather-icons.min.css">
+    <link rel="stylesheet" href="public/weather-icons.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="public/style.css">
   </head>
 
   <body>
-    <!-- HEADER -->
-    <header>
-      <h1>View your local weather</h1>
-    </header>
-    <main>
-      <!-- LOADING SPINNER -->
-      <div class="spinner">
-        <span class="fa fa-sync-alt fa-spin fa-3x fa-fw" aria-label="Loading..."></span>
-      </div>
-      <div class="card">
-        <div class="col">
-          <!-- CURRENT WEATHER -->
-          <div class="location"></div>
-          <div class="temp"></div>
-          <div class="weather-icon"></div>
-          <div class="weather"></div>
-          <!-- SUNRISE/SUNSET -->
-          <table class="sunrise-sunset">
-            <thead>
-              <tr>
-                <th>Sunrise</th>
-                <th>Sunset</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="sunrise"></td>
-                <td class="sunset"></td>
-              </tr>
-            </tbody>
-          </table>
-          <!-- BUTTON -->
-          <button type="button" class="switch"></button>
-        </div>
-        <div class="col">
-          <!-- HOURLY FORECAST -->
-          <table class="hourly-forecast">
-            <tbody></tbody>
-          </table>
-          <!-- FIVE-DAY FORECAST -->
-          <table class="daily-forecast">
-            <thead>
-              <tr>
-                <th>Day</th>
-                <th>High/Low</th>
-                <th colspan="2">Weather</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </div>
-      <!-- ERROR MESSAGE -->
-      <p class="message error-message"></p>
-    </main>
-    <!-- FOOTER -->
-    <footer>
-      <span>Coded by <a href="https://autumnbullard-portfolio.herokuapp.com" target="_blank">Autumn Bullard</a></span>
-      <span>Powered by <a href="https://darksky.net/poweredby" target="_blank">Dark Sky</a></span>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script src="js/script.js"></script>
+    <div id="app"></div>
+    <script src="public/bundle.js"></script>
+    <noscript>
+      <p class="message info-message"><span class="fa fa-info-circle fa-lg fa-fw"></span> This site uses JavaScript. Please enable JavaScript in your browser.</p>
+    </noscript>
   </body>
 </html>
