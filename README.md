@@ -9,13 +9,12 @@ My project for the [Show the Local Weather challenge](https://learn.freecodecamp
 * [Sass](http://sass-lang.com)
 * HTML5
 * Geolocation
+* [OpenWeatherMap API](https://openweathermap.org)
 * AJAX
-* [axios-jsonp-pro](https://github.com/RekingZhang/axios-jsonp)
-* [Dark Sky weather API](https://darksky.net/dev)
+* [axios](https://github.com/axios/axios)
 * [Webpack](https://webpack.js.org)
 * [Moment.js](https://momentjs.com)
 * [Weather Icons](https://erikflowers.github.io/weather-icons)
-* [Google Maps Geocoding API](https://developers.google.com/maps/documentation/geocoding/start)
 * LocalStorage
 * [dotenv-webpack](https://github.com/mrsteele/dotenv-webpack)
 * [Babel](https://babeljs.io)

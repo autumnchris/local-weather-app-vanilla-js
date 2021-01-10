@@ -285,6 +285,9 @@ html {
         }
       }
     }
+    .weather-description {
+      text-transform: capitalize;
+    }
   }
 
   .error-message {
