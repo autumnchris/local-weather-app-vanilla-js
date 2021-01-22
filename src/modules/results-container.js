@@ -94,7 +94,7 @@ const ResultsContainer = (() => {
   function renderLoadingSpinner() {
     const loadingSpinner = document.createElement('div');
     loadingSpinner.classList.add('loading-spinner');
-    loadingSpinner.innerHTML = `<span class="fa fa-sync-alt fa-spin fa-2x fa-fw" aria-label="Loading..."></span>`;
+    loadingSpinner.setAttribute('aria-label', 'Loading...');
 
     document.querySelector('main').appendChild(loadingSpinner);
   }
