@@ -11,7 +11,7 @@ My project for the [Show the Local Weather challenge](https://learn.freecodecamp
 * Geolocation
 * [OpenWeatherMap API](https://openweathermap.org)
 * AJAX
-* [axios](https://github.com/axios/axios)
+* [Axios](https://axios-http.com)
 * [Webpack](https://webpack.js.org)
 * [Moment.js](https://momentjs.com)
 * [Weather Icons](https://erikflowers.github.io/weather-icons)
