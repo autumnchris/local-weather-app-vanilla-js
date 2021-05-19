@@ -9,6 +9,7 @@
 
 html {
   background: transparent;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   color: change-color($black, $lightness: 100%);
   height: 100%;
@@ -18,6 +19,7 @@ html {
   body {
     background: $blue;
     min-height: 100%;
+    -ms-scroll-chaining: none;
     overscroll-behavior: none;
     padding: 0 20px;
     position: relative;
@@ -44,6 +46,7 @@ html {
     h4,
     h5,
     h6 {
+      -webkit-box-sizing: border-box;
       box-sizing: border-box;
       margin-top: 0;
     }
@@ -67,6 +70,7 @@ html {
   button:hover,
   button:active,
   button:focus {
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
 
@@ -105,6 +109,7 @@ html {
   select:focus,
   textarea:focus,
   [tabindex]:focus {
+    -webkit-box-shadow: 0 0 3px 3px hsla(203, 95%, 62%, 0.8);
     box-shadow: 0 0 3px 3px hsla(203, 95%, 62%, 0.8);
     outline: none;
   }
@@ -150,12 +155,15 @@ html {
 
   .weather-content {
     background: change-color($blue, $lightness: 30%);
+    display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 100%;
     grid-template-columns: 100%;
     margin: 0 auto;
     max-width: 1000px;
     padding: 20px;
-    @media only screen and (min-width: 980px) {
+    @media all and (min-width: 980px) {
+      -ms-grid-columns: 50% 50%;
       grid-template-columns: 50% 50%;
     }
     .col {
@@ -212,6 +220,7 @@ html {
           height: 26px;
           position: absolute;
           -webkit-transition: .5s;
+          -o-transition: .5s;
           transition: .5s;
           width: 26px;
         }
@@ -237,8 +246,6 @@ html {
       .hourly-forecast {
         background: $blue;
         display: -webkit-box;
-        display: -moz-box;
-        display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
         margin: 0 auto 20px;
@@ -274,7 +281,7 @@ html {
             &:last-child {
               display: none;
               text-align: left;
-              @media only screen and (min-width: 550px) {
+              @media all and (min-width: 550px) {
                 display: table-cell;
               }
             }
@@ -291,6 +298,7 @@ html {
   }
 
   .loading-spinner {
+    -webkit-animation: spin 0.75s linear infinite;
     animation: spin 0.75s linear infinite;
     border: 4px solid change-color($black, $lightness: 100%);
     border-top: 4px solid transparent;
@@ -319,14 +327,29 @@ html {
     position: absolute;
     text-align: center;
     top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+  }
+
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
   }
 
   @keyframes spin {
     0% {
+      -webkit-transform: rotate(0deg);
       transform: rotate(0deg);
     }
     100% {
+      -webkit-transform: rotate(360deg);
       transform: rotate(360deg);
     }
   }
