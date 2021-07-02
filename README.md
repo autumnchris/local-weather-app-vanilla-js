@@ -1,6 +1,8 @@
 # Local Weather App (vanilla JS)
 
-My project for the [Show the Local Weather challenge](https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/show-the-local-weather) as part of the curriculum for the Coding Interview Take Home Projects on [freeCodeCamp](https://www.freecodecamp.org). Built with vanilla JS.
+A front-end web app that uses HTML5 Geolocation and the OpenWeatherMap API to get the user's current weather and forecast. Built with vanilla JS.
+
+Inspired by the [Show the Local Weather challenge](https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/show-the-local-weather) as part of the curriculum for the [Coding Interview Prep](https://www.freecodecamp.org/learn/coding-interview-prep) on [freeCodeCamp](https://www.freecodecamp.org).
 
 ---
 
