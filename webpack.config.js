@@ -29,10 +29,6 @@ module.exports = {
           'css-loader',
           'sass-loader'
         ]
-      },
-      {
-        test: /\.(ttf|otf|woff)$/,
-        type: 'asset'
       }
     ]
   },
