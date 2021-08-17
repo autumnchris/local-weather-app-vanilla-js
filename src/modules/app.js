@@ -12,7 +12,7 @@ const App = (() => {
     <footer>Created by <a href="https://autumnbullard-portfolio.herokuapp.com" target="_blank">Autumn Bullard</a> &copy; ${new Date().getFullYear()}</footer>`;
 
     ResultsContainer.renderLoadingSpinner();
-    navigator.geolocation.getCurrentPosition(WeatherRequest.getSuccess, WeatherRequest.getError);
+    navigator.geolocation.getCurrentPosition(WeatherRequest.getSuccess, WeatherRequest.getError, WeatherRequest.options);
 
     document.addEventListener('click', () => {
        const element = event.target;

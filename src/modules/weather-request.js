@@ -2,6 +2,9 @@ import axios from 'axios';
 import { ResultsContainer } from './results-container';
 
 const WeatherRequest = (() => {
+  const options = {
+    timeout: 18000
+  };
 
   function getSuccess(position) {
     const lat = position.coords.latitude;
@@ -46,7 +49,8 @@ const WeatherRequest = (() => {
 
   return {
     getSuccess,
-    getError
+    getError,
+    options
   };
 })();
 

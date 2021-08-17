@@ -1,5 +1,4 @@
 import moment from 'moment';
-import { WeatherRequest } from './weather-request';
 
 const ResultsContainer = (() => {
   let tempType = JSON.parse(localStorage.getItem('tempType')) || 'f';
@@ -41,8 +40,8 @@ const ResultsContainer = (() => {
       <table class="sunrise-sunset">
         <thead>
           <tr>
-            <th>Sunrise</th>
-            <th>Sunset</th>
+            <th><span class="wi wi-sunrise wi-fw"></span> Sunrise</th>
+            <th><span class="wi wi-sunset wi-fw"></span> Sunset</th>
           </tr>
         </thead>
         <tbody>
