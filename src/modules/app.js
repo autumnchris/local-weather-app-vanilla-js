@@ -14,7 +14,7 @@ const App = (() => {
     ResultsContainer.renderLoadingSpinner();
     navigator.geolocation.getCurrentPosition(WeatherRequest.getSuccess, WeatherRequest.getError, WeatherRequest.options);
 
-    document.addEventListener('click', () => {
+    document.addEventListener('click', event => {
        const element = event.target;
        element.matches('.switch-button') ? ResultsContainer.toggleTempType() : null;
     });
