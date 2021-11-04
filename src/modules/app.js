@@ -9,7 +9,7 @@ const App = (() => {
       <h1>View your local weather</h1>
     </header>
     <main></main>
-    <footer>Created by <a href="https://autumnbullard-portfolio.herokuapp.com" target="_blank">Autumn Bullard</a> &copy; ${new Date().getFullYear()}</footer>`;
+    <footer>Created by <a href="https://autumnchris.github.io/portfolio" target="_blank">Autumn Bullard</a> &copy; ${new Date().getFullYear()}</footer>`;
 
     ResultsContainer.renderLoadingSpinner();
     navigator.geolocation.getCurrentPosition(WeatherRequest.getSuccess, WeatherRequest.getError, WeatherRequest.options);
