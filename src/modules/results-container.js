@@ -19,8 +19,7 @@ const ResultsContainer = (() => {
       return `<tr>
         <td>${moment(day.dt * 1000).format('ddd')}</td>
         <td>${tempType === 'f' ? Math.round(day.temp.max) : Math.round((day.temp.max - 32) * (5/9))}&deg;/${tempType === 'f' ? Math.round(day.temp.min) : Math.round((day.temp.min - 32) * (5/9))}&deg;</td>
-        <td class="wi wi-owm-${day.weather[0].id} weather-icon"></td>
-        <td class="weather-description">${day.weather[0].description}</td>
+        <td><span class="wi wi-owm-${day.weather[0].id} weather-icon"></span><span class="weather-description"> ${day.weather[0].description}</span></td>
       </tr>`;
     }).join('');
   }
@@ -40,8 +39,8 @@ const ResultsContainer = (() => {
       <table class="sunrise-sunset">
         <thead>
           <tr>
-            <th><span class="wi wi-sunrise wi-fw"></span> Sunrise</th>
-            <th><span class="wi wi-sunset wi-fw"></span> Sunset</th>
+            <th scope="col"><span class="wi wi-sunrise wi-fw"></span> Sunrise</th>
+            <th scope="col"><span class="wi wi-sunset wi-fw"></span> Sunset</th>
           </tr>
         </thead>
         <tbody>
@@ -60,9 +59,9 @@ const ResultsContainer = (() => {
       <table class="daily-forecast">
         <thead>
           <tr>
-            <th>Day</th>
-            <th>High/Low</th>
-            <th colspan="2">Weather</th>
+            <th scope="col">Day</th>
+            <th scope="col">High/Low</th>
+            <th scope="col">Weather</th>
           </tr>
         </thead>
         <tbody></tbody>

@@ -269,22 +269,19 @@ h1 {
           font-size: 0.8rem;
           line-height: 1.7;
           padding: 10px;
-          &:last-child {
-            display: none;
-            text-align: left;
-            @media all and (min-width: 550px) {
-              display: table-cell;
-            }
-          }
-          &.weather-icon {
-            font-size: 1rem;
-          }
+        }
+      }
+      .weather-icon {
+        font-size: 1rem;
+      }
+      .weather-description {
+        display: none;
+        text-transform: capitalize;
+        @media all and (min-width: 550px) {
+          display: inline;
         }
       }
     }
-  }
-  .weather-description {
-    text-transform: capitalize;
   }
 }
 
