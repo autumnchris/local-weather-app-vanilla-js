@@ -176,6 +176,7 @@ h1 {
       .weather-summary {
         margin-top: 25px;
         text-shadow: 1px 1px 1px $blue;
+        text-transform: capitalize;
       }
     }
     .sunrise-sunset {
