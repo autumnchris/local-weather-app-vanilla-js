@@ -1,0 +1,198 @@
+// STYLES FOR PAGE'S MAIN CONTENT
+
+// Button styles
+.button,
+.button:visited,
+.button:hover,
+.button:active,
+.button:focus {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  color: change-color($black, $lightness: 100%);
+  cursor: pointer;
+  letter-spacing: 1px;
+  line-height: normal;
+  padding: 0;
+  width: auto;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Weather content styles
+.weather-content {
+  background: change-color($blue, $lightness: 30%);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+  grid-template-columns: 100%;
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 20px;
+  @media all and (min-width: 980px) {
+    -ms-grid-columns: 50% 50%;
+    grid-template-columns: 50% 50%;
+  }
+  .col {
+    padding: 5px;
+    .location {
+      text-shadow: 1px 1px 1px $blue;
+    }
+    .current-weather {
+      .temp {
+        font-size: 4.5rem;
+        margin-top: 25px;
+        text-shadow: 2px 2px 1px $blue;
+      }
+      .weather-icon {
+        font-size: 3.5rem;
+        margin-top: 25px;
+        text-shadow: 2px 2px 1px $blue;
+      }
+      .weather-summary {
+        margin-top: 25px;
+        text-shadow: 1px 1px 1px $blue;
+        text-transform: capitalize;
+      }
+    }
+    .sunrise-sunset {
+      margin: 25px auto 0;
+      th {
+        background: $blue;
+        font-size: 0.7rem;
+        padding: 10px;
+        text-transform: uppercase;
+      }
+      td {
+        font-size: 0.8rem;
+        padding: 10px;
+      }
+    }
+    .switch-button,
+    .switch-button:hover,
+    .switch-button:active,
+    .switch-button:focus {
+      background: $blue;
+      border: 3px solid $blue;
+      border-radius: 34px;
+      height: 34px;
+      margin: 25px 0;
+      padding: 4px 8px;
+      position: relative;
+      width: 70px;
+      &:before {
+        background: change-color($black, $lightness: 100%);
+        border-radius: 50%;
+        bottom: 1px;
+        content: "";
+        height: 26px;
+        position: absolute;
+        -webkit-transition: .5s;
+        -o-transition: .5s;
+        transition: .5s;
+        width: 26px;
+      }
+      &.f,
+      &.f:hover,
+      &.f:active,
+      &.f:focus {
+        text-align: right;
+        &:before {
+          left: 1px;
+        }
+      }
+      &.c,
+      &.c:hover,
+      &.c:active,
+      &.c:focus{
+        text-align: left;
+        &:before {
+          left: 37px;
+        }
+      }
+    }
+    .hourly-forecast {
+      background: $blue;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      margin: 0 auto 20px;
+      overflow-x: auto;
+      position: relative;
+      tr {
+        display: table-cell;
+        padding: 18px;
+        td {
+          display: table-row;
+          font-size: 0.8rem;
+          line-height: 2.4;
+          &.weather-icon {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+    .daily-forecast {
+      margin: 0 auto;
+      tr {
+        border-top: 1px solid $blue;
+        th {
+          background: $blue;
+          font-size: 0.7rem;
+          padding: 10px;
+          text-transform: uppercase;
+        }
+        td {
+          font-size: 0.8rem;
+          line-height: 1.7;
+          padding: 10px;
+        }
+      }
+      .weather-icon {
+        font-size: 1rem;
+      }
+      .weather-description {
+        display: none;
+        text-transform: capitalize;
+        @media all and (min-width: 550px) {
+          display: inline;
+        }
+      }
+    }
+  }
+}
+
+// Loading spinner styles
+.loading-spinner {
+  -webkit-animation: spin 0.75s linear infinite;
+  animation: spin 0.75s linear infinite;
+  border: 4px solid change-color($black, $lightness: 100%);
+  border-top: 4px solid transparent;
+  border-radius: 50%;
+  height: 30px;
+  margin: 0 auto;
+  width: 30px;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
