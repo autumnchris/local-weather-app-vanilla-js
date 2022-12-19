@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ResultsContainer } from './results-container';
+import { ResultsContainer } from './Results-Container';
 
 const WeatherRequest = (() => {
   const options = {

@@ -1,5 +1,5 @@
-import { WeatherRequest } from './weather-request';
-import { ResultsContainer } from './results-container';
+import { WeatherRequest } from './Weather-Request';
+import { ResultsContainer } from './Results-Container';
 
 const App = (() => {
 
