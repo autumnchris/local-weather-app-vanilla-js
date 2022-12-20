@@ -6,9 +6,10 @@ const ResultsContainer = (() => {
 
   function renderHourlyForecast(hourlyForecast) {
     document.querySelector('.hourly-forecast tbody').innerHTML = hourlyForecast.slice(0, 24).map(hour => {
+      console.log(hour);
       return `<tr>
         <td>${moment(hour.dt * 1000).format('hA')}</td>
-        <td class="wi wi-owm${hour.weather[0].icon.slice(-1) === 'n' ? '-night' : ''}-${hour.weather[0].id} weather-icon"></td>
+        <td class="wi wi-owm${hour.weather[0].icon.slice(-1) === 'n' ? '-night' : ''}-${hour.weather[0].id} weather-icon" aria-label="${hour.weather[0].description}"></td>
         <td>${tempType === 'f' ? Math.round(hour.temp) : Math.round((hour.temp - 32) * (5/9))}&deg;</td>
       </tr>`;
     }).join('');
@@ -19,7 +20,7 @@ const ResultsContainer = (() => {
       return `<tr>
         <td>${moment(day.dt * 1000).format('ddd')}</td>
         <td>${tempType === 'f' ? Math.round(day.temp.max) : Math.round((day.temp.max - 32) * (5/9))}&deg;/${tempType === 'f' ? Math.round(day.temp.min) : Math.round((day.temp.min - 32) * (5/9))}&deg;</td>
-        <td><span class="wi wi-owm-${day.weather[0].id} weather-icon"></span><span class="weather-description"> ${day.weather[0].description}</span></td>
+        <td class="weather-description"><span class="wi wi-owm-${day.weather[0].id} weather-icon" aria-hidden="true"></span> ${day.weather[0].description}</td>
       </tr>`;
     }).join('');
   }
@@ -33,14 +34,14 @@ const ResultsContainer = (() => {
       <div class="location">${weatherData.city}</div>
       <div class="current-weather">
         <div class="temp">${tempType === 'f' ? weatherData.currentWeather.fahrenheitTemp : weatherData.currentWeather.celsiusTemp}&deg;${tempType.toUpperCase()}</div>
-        <div class="wi wi-owm${weatherData.currentWeather.isNight ? '-night' : ''}-${weatherData.currentWeather.weatherIcon} weather-icon"></div>
+        <div class="wi wi-owm${weatherData.currentWeather.isNight ? '-night' : ''}-${weatherData.currentWeather.weatherIcon} weather-icon" aria-hidden="true"></div>
         <div class="weather-summary weather-description">${weatherData.currentWeather.weatherSummary}</div>
       </div>
       <table class="sunrise-sunset">
         <thead>
           <tr>
-            <th scope="col"><span class="wi wi-sunrise wi-fw"></span> Sunrise</th>
-            <th scope="col"><span class="wi wi-sunset wi-fw"></span> Sunset</th>
+            <th scope="col"><span class="wi wi-sunrise wi-fw" aria-hidden="true"></span> Sunrise</th>
+            <th scope="col"><span class="wi wi-sunset wi-fw" aria-hidden="true"></span> Sunset</th>
           </tr>
         </thead>
         <tbody>
@@ -105,7 +106,7 @@ const ResultsContainer = (() => {
   function renderErrorMessage(messageText) {
     const errorMessage = document.createElement('p');
     errorMessage.classList.add('message', 'error-message');
-    errorMessage.innerHTML = `<span class="fa fa-exclamation-circle fa-lg fa-fw"></span> ${messageText}`;
+    errorMessage.innerHTML = `<span class="fa fa-exclamation-circle fa-lg fa-fw" aria-hidden="true"></span> ${messageText}`;
 
     document.querySelector('main').appendChild(errorMessage);
   }

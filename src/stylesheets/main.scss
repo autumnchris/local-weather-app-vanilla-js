@@ -149,14 +149,10 @@
           padding: 10px;
         }
       }
-      .weather-icon {
-        font-size: 1rem;
-      }
       .weather-description {
-        display: none;
         text-transform: capitalize;
-        @media all and (min-width: 550px) {
-          display: inline;
+        .weather-icon {
+          font-size: 1rem;
         }
       }
     }
