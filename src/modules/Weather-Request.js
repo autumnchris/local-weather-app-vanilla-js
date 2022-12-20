@@ -19,7 +19,13 @@ const WeatherRequest = (() => {
       return axios.get(`https://api.openweathermap.org/data/2.5/onecall?&lat=${lat}&lon=${lon}&units=imperial&appid=${process.env.API_KEY}`);
     }
 
-    axios.all([fetchCurrentWeatherData(), fetchForecastData()]).then(axios.spread((currentWeatherData, forecastData) => {
+    Promise.all([
+      fetchCurrentWeatherData(),
+      fetchForecastData()
+    ]).then(([
+      currentWeatherData,
+      forecastData
+    ]) => {
       apiData = {
         city: currentWeatherData.data.name,
         currentWeather: {
@@ -36,7 +42,7 @@ const WeatherRequest = (() => {
       };
       ResultsContainer.removeLoadingSpinner();
       ResultsContainer.renderWeatherResults(apiData);
-    })).catch(() =>{
+    }).catch(() =>{
       ResultsContainer.removeLoadingSpinner();
       ResultsContainer.renderErrorMessage('Unable to load current weather at this time.');
     });
