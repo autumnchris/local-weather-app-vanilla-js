@@ -1,32 +1,37 @@
-import axios from 'axios';
-import { ResultsContainer } from './ResultsContainer';
+import LoadingSpinner from './LoadingSpinner';
+import WeatherResults from './WeatherResults';
+import ErrorMessage from './ErrorMessage';
+import fetchCurrentWeatherData from '../utils/fetchCurrentWeatherData';
+import fetchForecastData from '../utils/fetchForecastData';
+import getTempType from '../utils/getTempType';
 
-const WeatherRequest = (() => {
-  const options = {
-    timeout: 18000
-  };
+class WeatherRequest {
+  constructor() {
+    this.loadingSpinner = new LoadingSpinner();
+    this.weatherResults = new WeatherResults();
+    this.errorMessage = new ErrorMessage();
+    this.weatherData = null;
+  }
 
-  function getSuccess(position) {
+  getGeolocation() {
+    const options = {
+      timeout: 18000
+    }
+    navigator.geolocation.getCurrentPosition(this.getGeolocationSuccess.bind(this), this.getGeolocationError.bind(this), options);
+  }
+
+  getGeolocationSuccess(position) {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
-    let apiData = null;
-
-    function fetchCurrentWeatherData() {
-      return axios.get(`https://api.openweathermap.org/data/2.5/weather?&lat=${lat}&lon=${lon}&units=imperial&appid=${process.env.API_KEY}`);
-    }
-
-    function fetchForecastData() {
-      return axios.get(`https://api.openweathermap.org/data/2.5/onecall?&lat=${lat}&lon=${lon}&units=imperial&appid=${process.env.API_KEY}`);
-    }
 
     Promise.all([
-      fetchCurrentWeatherData(),
-      fetchForecastData()
+      fetchCurrentWeatherData(lat, lon),
+      fetchForecastData(lat, lon)
     ]).then(([
       currentWeatherData,
       forecastData
     ]) => {
-      apiData = {
+      this.weatherData = {
         city: currentWeatherData.data.name,
         currentWeather: {
           fahrenheitTemp: Math.round(currentWeatherData.data.main.temp),
@@ -40,24 +45,31 @@ const WeatherRequest = (() => {
         hourlyForecast: forecastData.data.hourly,
         dailyForecast: forecastData.data.daily
       };
-      ResultsContainer.removeLoadingSpinner();
-      ResultsContainer.renderWeatherResults(apiData);
-    }).catch(() =>{
-      ResultsContainer.removeLoadingSpinner();
-      ResultsContainer.renderErrorMessage('Unable to load current weather at this time.');
+      this.loadingSpinner.removeLoadingSpinner('main');
+      this.weatherResults.renderWeatherResults(this.weatherData, 'main');
+    }).catch(() => {
+      this.loadingSpinner.removeLoadingSpinner('main');
+      this.errorMessage.renderErrorMessage('Unable to load current weather at this time.', 'main');
     });
   }
 
-  function getError(err) {
-    ResultsContainer.removeLoadingSpinner();
-    ResultsContainer.renderErrorMessage(err.message);
+  getGeolocationError(err) {
+    this.loadingSpinner.removeLoadingSpinner('main');
+    this.errorMessage.renderErrorMessage(err.message, 'main');
   }
 
-  return {
-    getSuccess,
-    getError,
-    options
-  };
-})();
+  toggleTempType() {
+    let tempType = getTempType();
 
-export { WeatherRequest };
+    if (tempType === 'f') {
+      tempType = 'c';
+    }
+    else if (tempType === 'c') {
+      tempType = 'f';
+    }
+    getTempType(tempType);
+    this.weatherResults.renderTempTypeChange(this.weatherData, tempType);
+  }
+}
+
+export default WeatherRequest;
