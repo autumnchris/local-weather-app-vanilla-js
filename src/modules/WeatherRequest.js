@@ -1,29 +1,41 @@
+import Header from './Header';
 import LoadingSpinner from './LoadingSpinner';
 import WeatherResults from './WeatherResults';
 import ErrorMessage from './ErrorMessage';
+import PageLoadContent from './PageLoadContent';
+import SearchFormModal from './SearchFormModal';
 import fetchCurrentWeatherData from '../utils/fetchCurrentWeatherData';
 import fetchForecastData from '../utils/fetchForecastData';
 import getTempType from '../utils/getTempType';
 
 class WeatherRequest {
   constructor() {
+    this.header = new Header();
     this.loadingSpinner = new LoadingSpinner();
     this.weatherResults = new WeatherResults();
     this.errorMessage = new ErrorMessage();
+    this.pageLoadContent = new PageLoadContent();
+    this.searchFormModal = new SearchFormModal();
     this.weatherData = null;
   }
 
-  getGeolocation() {
-    const options = {
-      timeout: 18000
-    }
-    navigator.geolocation.getCurrentPosition(this.getGeolocationSuccess.bind(this), this.getGeolocationError.bind(this), options);
+  resetWeatherResults() {
+    this.weatherData = null;
+    this.searchFormModal.removeSearchFormModal('main');
+    this.header.removePageLoadHeader('#app');
+    this.header.removeResultsHeader('#app');
+    this.pageLoadContent.removePageLoadContent('main');
+    this.weatherResults.removeWeatherResults('main');
+    this.header.renderResultsHeader(['#app', 'main']);
+    this.loadingSpinner.renderLoadingSpinner('main');
   }
 
-  getGeolocationSuccess(position) {
-    const lat = position.coords.latitude;
-    const lon = position.coords.longitude;
+  selectCity(lat, lon) {
+    this.resetWeatherResults();
+    this.fetchWeatherResults(lat, lon);
+  }
 
+  fetchWeatherResults(lat, lon) {
     Promise.all([
       fetchCurrentWeatherData(lat, lon),
       fetchForecastData(lat, lon)
@@ -51,6 +63,20 @@ class WeatherRequest {
       this.loadingSpinner.removeLoadingSpinner('main');
       this.errorMessage.renderErrorMessage('Unable to load current weather at this time.', 'main');
     });
+  }
+
+  getGeolocation() {
+    this.resetWeatherResults();
+    const options = {
+      timeout: 18000
+    }
+    navigator.geolocation.getCurrentPosition(this.getGeolocationSuccess.bind(this), this.getGeolocationError.bind(this), options);
+  }
+
+  getGeolocationSuccess(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    this.fetchWeatherResults(lat, lon);
   }
 
   getGeolocationError(err) {

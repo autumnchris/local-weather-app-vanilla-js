@@ -1,6 +1,15 @@
 // STYLES FOR PAGE'S MAIN CONTENT
 
 // Button styles
+.button-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .button,
 .button:visited,
 .button:hover,
@@ -17,6 +26,49 @@
   width: auto;
   &:hover {
     text-decoration: none;
+  }
+}
+
+.page-load-view + main .button-group {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.page-load-view + main .page-load-buttons .button,
+.page-load-view + main .page-load-buttons .button:visited,
+.page-load-view + main .page-load-buttons .button:hover,
+.page-load-view + main .page-load-buttons .button:active,
+.page-load-view + main .page-load-buttons .button:focus {
+  background: change-color($blue, $lightness: 30%);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 12px;
+  width: 230px;
+  &:hover {
+    color: $yellow;
+  }
+  .icon {
+    pointer-events: none;
+  }
+}
+
+.results-view .button,
+.results-view .button:visited,
+.results-view .button:hover,
+.results-view .button:active,
+.results-view .button:focus {
+  background: $blue;
+  border-radius: 4px;
+  height: 30px;
+  margin-left: 8px;
+  width: 30px;
+  &:hover {
+    color: $yellow;
+  }
+  .icon {
+    pointer-events: none;
   }
 }
 
@@ -70,6 +122,7 @@
       }
     }
     .switch-button,
+    .switch-button:visited,
     .switch-button:hover,
     .switch-button:active,
     .switch-button:focus {

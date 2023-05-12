@@ -22,7 +22,39 @@ html {
     padding: 0 20px;
     position: relative;
     header {
-      padding: 45px 0 20px;
+      &.page-load-view {
+        padding: 45px 0 20px;
+        h1 {
+          font-size: 1.45rem;
+          letter-spacing: 4px;
+          line-height: 1.45;
+        }
+      }
+      &.results-view {
+        background: change-color($blue, $lightness: 30%);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        left: 0;
+        padding: 10px 15px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        + main {
+          padding-top: 100px;
+        }
+        h1 {
+          font-size: 1.1rem;
+          margin: 0;
+        }
+      }
     }
     main {
       padding-bottom: 6rem;
@@ -46,11 +78,6 @@ html {
     h6 {
       margin-top: 0;
     }
-    h1 {
-      font-size: 1.45rem;
-      letter-spacing: 4px;
-      line-height: 1.45;
-    }
   }
 }
 
@@ -59,136 +86,7 @@ a:visited,
 a:hover,
 a:active,
 a:focus {
-  color: $link-color;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-a:focus,
-button:focus,
-details:focus,
-input:focus,
-select:focus,
-textarea:focus,
-[tabindex]:focus {
-  -webkit-box-shadow: 0 0 3px 3px hsla(203, 95%, 62%, 0.8);
-  box-shadow: 0 0 3px 3px hsla(203, 95%, 62%, 0.8);
-  outline: none;
-}
-
-button,
-button:hover,
-button:active,
-button:focus,
-input,
-optgroup,
-select,
-textarea {
-  font-family: inherit;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-// Message styles
-.message {
-  border-radius: 5px;
-  line-height: 1.55;
-  margin: 20px auto;
-  max-width: 800px;
-  padding: 15px 10px;
-}
-
-.error-message {
-  background: change-color($error-red, $lightness: 95%);
-  border: 1px solid change-color($error-red, $lightness: 90%);
-  color: $error-red;
-}
-
-.info-message {
-  background: change-color($info-blue, $lightness: 95%);
-  border: 1px solid change-color($info-blue, $lightness: 90%);
-  color: $info-blue;
-}
-
-noscript .info-message {
-  left: 50%;
-  margin: 0 auto;
-  min-width: 280px;
-  position: absolute;
-  text-align: center;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-
-@import "variables";
-
-// BASE PAGE STYLES
-
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-html {
-  background: transparent;
-  height: 100%;
-  font-family: $main-font;
-  letter-spacing: 2px;
-  text-align: center;
-  body {
-    background: $blue;
-    color: change-color($black, $lightness: 100%);
-    min-height: 100%;
-    -ms-scroll-chaining: none;
-    overscroll-behavior: none;
-    padding: 0 20px;
-    position: relative;
-    header {
-      padding: 45px 0 20px;
-    }
-    main {
-      padding-bottom: 6rem;
-    }
-    footer {
-      background: change-color($blue, $lightness: 30%);
-      bottom: 0;
-      font-size: 0.8rem;
-      left: 0;
-      line-height: 1.4;
-      padding: 14px;
-      position: absolute;
-      right: 0;
-      width: 100%;
-    }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      margin-top: 0;
-    }
-    h1 {
-      font-size: 1.45rem;
-      letter-spacing: 4px;
-      line-height: 1.45;
-    }
-  }
-}
-
-a,
-a:visited,
-a:hover,
-a:active,
-a:focus {
-  color: $link-color;
+  color: $yellow;
   text-decoration: none;
   &:hover {
     text-decoration: underline;
@@ -257,3 +155,4 @@ noscript .info-message {
 }
 
 @import "main";
+@import "form";

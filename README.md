@@ -10,8 +10,9 @@ Inspired by the [Show the Local Weather challenge](https://learn.freecodecamp.or
 * JavaScript
 * [Sass](http://sass-lang.com)
 * HTML5
-* Geolocation
+* Geolocation API
 * [OpenWeatherMap API](https://openweathermap.org)
+* [GeoDB Cities API](https://rapidapi.com/wirefreethought/api/geodb-cities)
 * AJAX
 * [Axios](https://axios-http.com)
 * [Webpack](https://webpack.js.org)
@@ -22,6 +23,7 @@ Inspired by the [Show the Local Weather challenge](https://learn.freecodecamp.or
 * [Babel](https://babeljs.io)
 * [Normalize.css](https://necolas.github.io/normalize.css)
 * [Font Awesome](https://fontawesome.com)
+* [Material Icons](https://fonts.google.com/icons)
 * [Google Fonts](https://fonts.google.com)
 
 ## Demo

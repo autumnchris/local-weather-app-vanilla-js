@@ -1,0 +1,137 @@
+// STYLES FOR FORMS
+
+input {
+  border: 0;
+  border-radius: 0;
+  color: change-color($black, $lightness: 20%);
+  letter-spacing: 1px;
+  line-height: 1.3;
+  padding: 6px;
+  width: 100%;
+  &::-webkit-input-placeholder {
+    color: change-color($black, $lightness: 60%);
+  }
+  &::-moz-placeholder {
+    color: change-color($black, $lightness: 60%);
+  }
+  &:-ms-input-placeholder {
+    color: change-color($black, $lightness: 60%);
+  }
+  &::-ms-input-placeholder {
+    color: change-color($black, $lightness: 60%);
+  }
+  &::placeholder {
+    color: change-color($black, $lightness: 60%);
+  }
+}
+
+// Modal styles
+.modal {
+  background: rgba($black, 0.75);
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  .modal-content {
+    -webkit-animation: slideIn 0.3s ease-out;
+    animation: slideIn 0.3s ease-out;
+    background: $blue;
+    margin: 10% auto;
+    max-width: 400px;
+    width: 80%;
+    .modal-header {
+      padding: 8px 8px 10px;
+      .button-group {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        .close-button,
+        .close-button:visited,
+        .close-button:hover,
+        .close-button:active,
+        .close-button:focus {
+          height: 35px;
+          margin: 0;
+          width: 35px;
+          &:hover {
+            color: $yellow;
+          }
+          .icon {
+            pointer-events: none;
+          }
+        }
+      }
+    }
+    .modal-body {
+      padding: 0 15px 15px;
+      .search-form {
+        margin: 0 auto;
+        .form-group {
+          position: relative;
+          .search-icon {
+            color: $blue;
+            left: 10px;
+            position: absolute;
+            top: 10px;
+          }
+          .search-input {
+            border-radius: 30px;
+            padding-left: 33px;
+          }
+        }
+      }
+      .city-search-result {
+        background: change-color($blue, $lightness: 30%);
+        cursor: pointer;
+        font-size: 0.92rem;
+        line-height: 1.5;
+        margin: 10px 0;
+        padding: 10px;
+        text-align: left;
+        &:hover {
+          color: $yellow;
+        }
+        &:first-child {
+          margin-top: 15px;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+        .result-text {
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@-webkit-keyframes slideIn {
+  from {
+    margin-top: 0;
+  }
+  to {
+    margin-top: 10%;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    margin-top: 0;
+  }
+  to {
+    margin-top: 10%;
+  }
+}

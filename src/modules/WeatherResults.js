@@ -48,6 +48,11 @@ class WeatherResults {
     this.hourlyForecast.renderHourlyForecast(weatherData.hourlyForecast, getTempType(), '.weather-content .col-2');
     this.dailyForecast.renderDailyForecast(weatherData.dailyForecast, getTempType(), '.weather-content .col-2');
   }
+
+  removeWeatherResults(location) {
+    const weatherResults = document.querySelector(`${location} .weather-content`);
+    weatherResults ? document.querySelector(location).removeChild(weatherResults) : null;
+  }
 }
 
 export default WeatherResults;
