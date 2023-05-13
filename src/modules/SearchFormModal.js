@@ -12,15 +12,12 @@ class SearchFormModal {
 
   handleChange(searchInput) {
 
-    if (searchInput) {
-
-      if (searchInput.trim() !== this.searchInput) {
-        this.searchInput = searchInput.trim();
-        clearTimeout(this.timer);
-        this.timer = setTimeout(() => {
-          this.fetchCitySearchResults(this.searchInput);
-        }, 600);
-      }
+    if (searchInput.trim()) {
+      this.searchInput = searchInput.trim();
+      clearTimeout(this.timer);
+      this.timer = setTimeout(() => {
+        this.fetchCitySearchResults(this.searchInput);
+      }, 600);
     }
     else {
       this.citySearchResults.removeCitySearchResults('.modal-body');
