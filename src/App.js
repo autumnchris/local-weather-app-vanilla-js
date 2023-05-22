@@ -12,7 +12,6 @@ class App {
     this.pageLoadContent = new PageLoadContent();
     this.searchFormModal = new SearchFormModal();
     this.renderApp();
-    this.events();
   }
 
     // Event listeners
@@ -30,16 +29,6 @@ class App {
       document.addEventListener('keydown', event => {
         document.querySelector('#modal') && event.key === 'Escape' ? this.searchFormModal.removeSearchFormModal('main'): null;
       });
-
-      document.addEventListener('keyup', event => {
-        const element = event.target;
-        element.matches('.search-form .search-input') ? this.searchFormModal.handleChange(element.value) : null;
-      });
-
-      document.addEventListener('submit', event => {
-        const element = event.target;
-        element.matches('.search-form') ? event.preventDefault() : null;
-      });
     }
 
   // DOM methods
@@ -48,6 +37,7 @@ class App {
     this.renderMain('#app');
     this.footer.renderFooter('#app');
     this.pageLoadContent.renderPageLoadContent('main');
+    this.events();
   }
 
   renderMain(location) {

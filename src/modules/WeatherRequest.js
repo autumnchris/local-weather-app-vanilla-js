@@ -45,15 +45,18 @@ class WeatherRequest {
     ]) => {
       this.weatherData = {
         city: currentWeatherData.data.name,
+        timezoneOffset: Math.floor(currentWeatherData.data.timezone / 60),
         currentWeather: {
-          fahrenheitTemp: Math.round(currentWeatherData.data.main.temp),
-          celsiusTemp: Math.round((currentWeatherData.data.main.temp - 32) * (5/9)),
+          temp: currentWeatherData.data.main.temp,
           weatherSummary: currentWeatherData.data.weather[0].description,
           weatherIcon: currentWeatherData.data.weather[0].id,
+          feelsLikeTemp: currentWeatherData.data.main.feels_like,
+          humidity: currentWeatherData.data.main.humidity,
+          uvIndex: forecastData.data.current.uvi,
+          sunriseTime: currentWeatherData.data.sys.sunrise,
+          sunsetTime: currentWeatherData.data.sys.sunset,
           isNight: currentWeatherData.data.weather[0].icon.slice(-1) === 'n' ? true : false
         },
-        sunriseTime: currentWeatherData.data.sys.sunrise,
-        sunsetTime: currentWeatherData.data.sys.sunset,
         hourlyForecast: forecastData.data.hourly,
         dailyForecast: forecastData.data.daily
       };

@@ -14,7 +14,7 @@ html {
   letter-spacing: 2px;
   text-align: center;
   body {
-    background: $blue;
+    background: change-color($blue, $lightness: 30%);
     color: change-color($black, $lightness: 100%);
     min-height: 100%;
     -ms-scroll-chaining: none;
@@ -31,7 +31,7 @@ html {
         }
       }
       &.results-view {
-        background: change-color($blue, $lightness: 30%);
+        background: $blue;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -43,10 +43,11 @@ html {
         justify-content: space-between;
         left: 0;
         padding: 10px 15px;
-        position: absolute;
+        position: fixed;
         right: 0;
         top: 0;
         width: 100%;
+        z-index: 1;
         + main {
           padding-top: 100px;
         }
@@ -60,7 +61,7 @@ html {
       padding-bottom: 6rem;
     }
     footer {
-      background: change-color($blue, $lightness: 30%);
+      background: $blue;
       bottom: 0;
       font-size: 0.8rem;
       left: 0;

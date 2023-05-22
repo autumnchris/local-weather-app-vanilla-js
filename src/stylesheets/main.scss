@@ -41,7 +41,7 @@
 .page-load-view + main .page-load-buttons .button:hover,
 .page-load-view + main .page-load-buttons .button:active,
 .page-load-view + main .page-load-buttons .button:focus {
-  background: change-color($blue, $lightness: 30%);
+  background: $blue;
   border-radius: 5px;
   margin-bottom: 20px;
   padding: 12px;
@@ -59,7 +59,7 @@
 .results-view .button:hover,
 .results-view .button:active,
 .results-view .button:focus {
-  background: $blue;
+  background: change-color($blue, $lightness: 30%);
   border-radius: 4px;
   height: 30px;
   margin-left: 8px;
@@ -72,29 +72,88 @@
   }
 }
 
+// Default table styles
+table {
+  background: $blue;
+  margin: 0 auto;
+  min-width: 250px;
+  tr:not(:first-child) {
+    border-top: 1px solid change-color($blue, $lightness: 30%);
+  }
+  td {
+    font-size: 0.8rem;
+    line-height: 1.7;
+    padding: 10px;
+  }
+}
+
 // Weather content styles
+.location {
+  font-size: 1.7rem;
+  text-shadow: 1px 1px 1px $blue;
+}
+
+.switch-button,
+.switch-button:visited,
+.switch-button:hover,
+.switch-button:active,
+.switch-button:focus {
+  background: $blue;
+  border: 3px solid $blue;
+  border-radius: 34px;
+  height: 34px;
+  margin: 25px 0;
+  padding: 4px 8px;
+  position: relative;
+  width: 70px;
+  &:before {
+    background: change-color($black, $lightness: 100%);
+    border-radius: 50%;
+    bottom: 1px;
+    content: "";
+    height: 26px;
+    position: absolute;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    transition: .5s;
+    width: 26px;
+  }
+  &.f,
+  &.f:hover,
+  &.f:active,
+  &.f:focus {
+    text-align: right;
+    &:before {
+      left: 1px;
+    }
+  }
+  &.c,
+  &.c:hover,
+  &.c:active,
+  &.c:focus{
+    text-align: left;
+    &:before {
+      left: 37px;
+    }
+  }
+}
+
 .weather-content {
-  background: change-color($blue, $lightness: 30%);
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 100%;
   grid-template-columns: 100%;
   margin: 0 auto;
   max-width: 1000px;
-  padding: 20px;
   @media all and (min-width: 980px) {
     -ms-grid-columns: 50% 50%;
     grid-template-columns: 50% 50%;
   }
   .col {
-    padding: 5px;
-    .location {
-      text-shadow: 1px 1px 1px $blue;
-    }
+    padding: 10px 5px;
     .current-weather {
       .temp {
         font-size: 4.5rem;
-        margin-top: 25px;
         text-shadow: 2px 2px 1px $blue;
       }
       .weather-icon {
@@ -108,61 +167,12 @@
         text-transform: capitalize;
       }
     }
-    .sunrise-sunset {
-      margin: 25px auto 0;
-      th {
-        background: $blue;
+    .current-weather-details {
+      margin-top: 20px;
+      tr td:first-child {
         font-size: 0.7rem;
-        padding: 10px;
+        letter-spacing: 2px;
         text-transform: uppercase;
-      }
-      td {
-        font-size: 0.8rem;
-        padding: 10px;
-      }
-    }
-    .switch-button,
-    .switch-button:visited,
-    .switch-button:hover,
-    .switch-button:active,
-    .switch-button:focus {
-      background: $blue;
-      border: 3px solid $blue;
-      border-radius: 34px;
-      height: 34px;
-      margin: 25px 0;
-      padding: 4px 8px;
-      position: relative;
-      width: 70px;
-      &:before {
-        background: change-color($black, $lightness: 100%);
-        border-radius: 50%;
-        bottom: 1px;
-        content: "";
-        height: 26px;
-        position: absolute;
-        -webkit-transition: .5s;
-        -o-transition: .5s;
-        transition: .5s;
-        width: 26px;
-      }
-      &.f,
-      &.f:hover,
-      &.f:active,
-      &.f:focus {
-        text-align: right;
-        &:before {
-          left: 1px;
-        }
-      }
-      &.c,
-      &.c:hover,
-      &.c:active,
-      &.c:focus{
-        text-align: left;
-        &:before {
-          left: 37px;
-        }
       }
     }
     .hourly-forecast {
@@ -174,6 +184,7 @@
       overflow-x: auto;
       position: relative;
       tr {
+        border: 0;
         display: table-cell;
         padding: 18px;
         td {
@@ -187,21 +198,6 @@
       }
     }
     .daily-forecast {
-      margin: 0 auto;
-      tr {
-        border-top: 1px solid $blue;
-        th {
-          background: $blue;
-          font-size: 0.7rem;
-          padding: 10px;
-          text-transform: uppercase;
-        }
-        td {
-          font-size: 0.8rem;
-          line-height: 1.7;
-          padding: 10px;
-        }
-      }
       .weather-description {
         text-transform: capitalize;
         .weather-icon {
