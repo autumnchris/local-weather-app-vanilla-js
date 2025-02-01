@@ -56,6 +56,9 @@ html {
           margin: 0;
         }
       }
+      &.page-not-found-message {
+        padding-top: 30px;
+      }
     }
     main {
       padding-bottom: 6rem;
