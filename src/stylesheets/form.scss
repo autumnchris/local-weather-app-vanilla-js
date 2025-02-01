@@ -89,14 +89,19 @@ input {
           }
         }
       }
-      .city-search-result {
+      .city-search-result,
+      .city-search-result:visited,
+      .city-search-result:hover,
+      .city-search-result:active,
+      .city-search-result:focus {
         background: change-color($blue, $lightness: 30%);
-        cursor: pointer;
         font-size: 0.92rem;
+        letter-spacing: 2px;
         line-height: 1.5;
-        margin: 10px 0;
+        margin: 10px 0 0 0;
         padding: 10px;
         text-align: left;
+        width: 100%;
         &:hover {
           color: $yellow;
         }
@@ -107,6 +112,7 @@ input {
           margin-bottom: 0;
         }
         .result-text {
+          margin: 0;
           pointer-events: none;
         }
       }

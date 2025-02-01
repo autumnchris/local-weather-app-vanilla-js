@@ -5,10 +5,10 @@ class CitySearchResults {
     citySearchResults.classList.add('search-options');
     citySearchResults.innerHTML = citySearchResultsData.sort((a, b) => b.population - a.population).map(city => {
       return `
-        <div class="city-search-result" data-lat="${city.latitude}" data-lon="${city.longitude}">
-          <div class="city result-text">${city.city}, ${city.region}</div>
-          <div class="country result-text">${city.country}</div>
-        </div>
+        <button class="button city-search-result" data-lat="${city.latitude}" data-lon="${city.longitude}">
+          <p class="city result-text">${city.city}, ${city.region}</p>
+          <p class="country result-text">${city.country}</p>
+        </button>
       `;
     }).join('');
     document.querySelector(location).appendChild(citySearchResults);

@@ -17,7 +17,7 @@ class SearchFormModal {
       clearTimeout(this.timer);
       this.timer = setTimeout(() => {
         this.fetchCitySearchResults(this.searchInput);
-      }, 600);
+      }, 1300);
     }
     else {
       this.citySearchResults.removeCitySearchResults('.modal-body');
