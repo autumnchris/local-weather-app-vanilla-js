@@ -26,6 +26,7 @@ class WeatherRequest {
     this.header.removeResultsHeader('#app');
     this.pageLoadContent.removePageLoadContent('main');
     this.weatherResults.removeWeatherResults('main');
+    this.errorMessage.removeErrorMessage('main');
     this.header.renderResultsHeader(['#app', 'main']);
     this.loadingSpinner.renderLoadingSpinner('main');
   }
