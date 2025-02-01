@@ -40,25 +40,25 @@ class WeatherRequest {
       fetchCurrentWeatherData(lat, lon),
       fetchForecastData(lat, lon)
     ]).then(([
-      currentWeatherData,
-      forecastData
+      currentWeatherResponse,
+      forecastResponse
     ]) => {
       this.weatherData = {
-        city: currentWeatherData.data.name,
-        timezoneOffset: Math.floor(currentWeatherData.data.timezone / 60),
+        city: currentWeatherResponse.data.name,
+        timezoneOffset: Math.floor(forecastResponse.data.timezone_offset / 60),
         currentWeather: {
-          temp: currentWeatherData.data.main.temp,
-          weatherSummary: currentWeatherData.data.weather[0].description,
-          weatherIcon: currentWeatherData.data.weather[0].id,
-          feelsLikeTemp: currentWeatherData.data.main.feels_like,
-          humidity: currentWeatherData.data.main.humidity,
-          uvIndex: forecastData.data.current.uvi,
-          sunriseTime: currentWeatherData.data.sys.sunrise,
-          sunsetTime: currentWeatherData.data.sys.sunset,
-          isNight: currentWeatherData.data.weather[0].icon.slice(-1) === 'n' ? true : false
+          temp: forecastResponse.data.current.temp,
+          weatherSummary: forecastResponse.data.current.weather[0].description,
+          weatherIcon: forecastResponse.data.current.weather[0].id,
+          feelsLikeTemp: forecastResponse.data.current.feels_like,
+          humidity: forecastResponse.data.current.humidity,
+          uvIndex: forecastResponse.data.current.uvi,
+          sunriseTime: forecastResponse.data.current.sunrise,
+          sunsetTime: forecastResponse.data.current.sunset,
+          isNight: forecastResponse.data.current.weather[0].icon.slice(-1) === 'n' ? true : false
         },
-        hourlyForecast: forecastData.data.hourly,
-        dailyForecast: forecastData.data.daily
+        hourlyForecast: forecastResponse.data.hourly,
+        dailyForecast: forecastResponse.data.daily
       };
       this.loadingSpinner.removeLoadingSpinner('main');
       this.weatherResults.renderWeatherResults(this.weatherData, 'main');
