@@ -1,9 +1,11 @@
 import axios from 'axios';
+import LoadingSpinner from './LoadingSpinner';
 import CitySearchResults from './CitySearchResults';
 import ErrorMessage from "./ErrorMessage";
 
 class SearchFormModal {
   constructor() {
+    this.loadingSpinner = new LoadingSpinner();
     this.citySearchResults = new CitySearchResults();
     this.errorMessage = new ErrorMessage();
     this.searchInput = '';
@@ -11,8 +13,14 @@ class SearchFormModal {
   }
 
   handleChange(searchInput) {
+    this.errorMessage.removeErrorMessage('.modal-body');
+    this.citySearchResults.removeCitySearchResults('.modal-body');
 
     if (searchInput.trim()) {
+
+      if (!document.querySelector('#modal .modal-body .loading-spinner')) {
+        this.loadingSpinner.renderLoadingSpinner('.modal-body');
+      }
       this.searchInput = searchInput.trim();
       clearTimeout(this.timer);
       this.timer = setTimeout(() => {
@@ -26,28 +34,17 @@ class SearchFormModal {
   }
 
   fetchCitySearchResults(searchInput) {
-    this.citySearchResults.removeCitySearchResults('.modal-body');
-    this.errorMessage.removeErrorMessage('.modal-body');
+    axios.get(`https://autumnchris-local-weather-backend.onrender.com/cities?searchInput=${searchInput}`).then(response => {
+      this.loadingSpinner.removeLoadingSpinner('.modal-body');
 
-    const options = {
-      method: 'GET',
-      url: `https://wft-geo-db.p.rapidapi.com/v1/geo/cities?minPopulation=20000&namePrefix=${searchInput}`,
-      headers: {
-        'X-RapidAPI-Key': process.env.GEO_DB_API_KEY,
-        'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
-      }
-    };
-
-    axios.request(options)
-    .then(response => {
-
-      if (response.data.data.length === 0 && searchInput) {
+      if (response.data.cities.data.length === 0 && searchInput) {
         this.errorMessage.renderErrorMessage('No cities match your search.', '.modal-body');
       }
       else {
-        this.citySearchResults.renderCitySearchResults(response.data.data, '.modal-body');
+        this.citySearchResults.renderCitySearchResults(response.data.cities.data, '.modal-body');
       }
     }).catch(() => {
+      this.loadingSpinner.removeLoadingSpinner('.modal-body');
       this.errorMessage.renderErrorMessage('Unable to load city search results at this time.', '.modal-body');
     });
   }

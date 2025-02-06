@@ -22,7 +22,6 @@ Inspired by the [Weather App assignment](https://www.theodinproject.com/lessons/
 * [Moment.js](https://momentjs.com)
 * [Weather Icons](https://erikflowers.github.io/weather-icons)
 * LocalStorage
-* [dotenv-webpack](https://github.com/mrsteele/dotenv-webpack)
 * [Babel](https://babeljs.io)
 * [Normalize.css](https://necolas.github.io/normalize.css)
 * [Font Awesome](https://fontawesome.com)
