@@ -80,7 +80,7 @@ class SearchFormModal {
           <form role="search" class="search-form">
             <div class="form-group">
               <span class="fas fa-search fa-sm search-icon" aria-hidden="true"></span>
-              <input type="text" class="search-input" aria-label="Search by city..." placeholder="Search by city..." required />
+              <input type="text" name="citySearch" class="search-input" aria-label="Search by city..." placeholder="Search by city..." id="city-search" autocomplete="off" required />
             </div>
           </form>
         </div>
