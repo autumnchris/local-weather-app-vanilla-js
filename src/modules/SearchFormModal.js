@@ -72,14 +72,14 @@ class SearchFormModal {
         <div class="modal-header">
           <div class="button-group">
             <button type="button" class="button close-button" aria-label="Close Search Form" title="Close Search Form">
-              <span class="material-icons icon">close</span>
+              <span class="fa-solid fa-xmark fa-lg icon"></span>
             </button>
           </div>
         </div>
         <div class="modal-body">
           <form role="search" class="search-form">
             <div class="form-group">
-              <span class="fas fa-search fa-sm search-icon" aria-hidden="true"></span>
+              <span class="fa-solid fa-magnifying-glass fa-sm search-icon" aria-hidden="true"></span>
               <input type="text" name="citySearch" class="search-input" aria-label="Search by city..." placeholder="Search by city..." id="city-search" autocomplete="off" required />
             </div>
           </form>

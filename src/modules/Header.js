@@ -21,10 +21,10 @@ class Header {
       </div>
       <div class="item button-group">
         <button type="button" class="button city-search-button" aria-label="Search By City" title="Search By City">
-          <span class="fas fa-search icon"></span>
+          <span class="fa-solid fa-magnifying-glass icon"></span>
         </button>
         <button type="button" class="button current-location-button" aria-label="Get Current Location" title="Get Current Location">
-          <span class="fas fa-map-marker-alt icon"></span>
+          <span class="fa-solid fa-location-dot icon"></span>
         </button>
       </div>
     `;

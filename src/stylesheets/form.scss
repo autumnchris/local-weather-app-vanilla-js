@@ -59,9 +59,9 @@ input {
         .close-button:hover,
         .close-button:active,
         .close-button:focus {
-          height: 35px;
+          height: 30px;
           margin: 0;
-          width: 35px;
+          width: 30px;
           &:hover {
             color: $yellow;
           }
@@ -81,7 +81,7 @@ input {
             color: $blue;
             left: 10px;
             position: absolute;
-            top: 10px;
+            top: 16px;
           }
           .search-input {
             border-radius: 30px;
