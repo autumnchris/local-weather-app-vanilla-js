@@ -4,6 +4,7 @@ class SwitchButton {
     const switchButton = document.createElement('button');
     switchButton.setAttribute('type', 'button');
     switchButton.classList.add('button', 'switch-button', tempType);
+    switchButton.setAttribute('aria-label', `switch to ${tempType === 'f' ? 'celsius' : 'fahrenheit'}`);
     switchButton.innerHTML = `&deg;${tempType.toUpperCase()}`;
 
     if (typeof location === 'string') {

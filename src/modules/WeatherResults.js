@@ -17,6 +17,7 @@ class WeatherResults {
     const switchButton = document.querySelector('.switch-button');
     switchButton.classList.add(tempType);
     switchButton.classList.remove(tempType === 'f' ? 'c' : 'f');
+    switchButton.setAttribute('aria-label', `switch to ${tempType === 'f' ? 'celsius' : 'fahrenheit'}`);
     switchButton.innerHTML = `&deg;${tempType.toUpperCase()}`;
 
     const currentTemp = document.querySelector('.current-weather .temp');
