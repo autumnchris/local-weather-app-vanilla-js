@@ -19,13 +19,17 @@ class Header {
       <div className="item">
         <h1>View the local weather</h1>
       </div>
-      <div class="item button-group">
-        <button type="button" class="button city-search-button" aria-label="Search By City" title="Search By City">
-          <span class="fa-solid fa-magnifying-glass icon"></span>
-        </button>
-        <button type="button" class="button current-location-button" aria-label="Get Current Location" title="Get Current Location">
-          <span class="fa-solid fa-location-dot icon"></span>
-        </button>
+      <div class="item">
+        <aside>
+          <div class="button-group">
+            <button type="button" class="button city-search-button" aria-label="Search By City" title="Search By City">
+              <span class="fa-solid fa-magnifying-glass icon"></span>
+            </button>
+            <button type="button" class="button current-location-button" aria-label="Get Current Location" title="Get Current Location">
+              <span class="fa-solid fa-location-dot icon"></span>
+            </button>
+          </div>
+        </aside>
       </div>
     `;
 
