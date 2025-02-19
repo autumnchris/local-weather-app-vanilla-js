@@ -77,7 +77,7 @@ class SearchFormModal {
           </div>
         </div>
         <div class="modal-body">
-          <form role="search" class="search-form">
+          <form role="search" class="search-form" novalidate>
             <div class="form-group">
               <span class="fa-solid fa-magnifying-glass fa-sm search-icon" aria-hidden="true"></span>
               <input type="text" name="citySearch" class="search-input" aria-label="Search by city..." placeholder="Search by city..." id="city-search" autocomplete="off" required />
