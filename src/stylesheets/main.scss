@@ -23,10 +23,8 @@
   letter-spacing: 1px;
   line-height: normal;
   padding: 0;
+  text-decoration: none;
   width: auto;
-  &:hover {
-    text-decoration: none;
-  }
 }
 
 .page-load-view + main .button-group {
