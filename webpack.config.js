@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { type } = require('os');
 
 module.exports = {
   output: {
@@ -33,10 +34,7 @@ module.exports = {
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        loader: 'file-loader',
-        options: {
-          outputPath: 'assets/fonts',
-        }
+        type: 'asset'
       }
     ]
   },
