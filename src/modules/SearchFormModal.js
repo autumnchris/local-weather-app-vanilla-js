@@ -49,19 +49,6 @@ class SearchFormModal {
     });
   }
 
-  // Event listeners
-  events() {
-    document.addEventListener('keyup', event => {
-      const element = event.target;
-      element.matches('.search-form .search-input') ? this.handleChange(element.value) : null;
-    });
-
-    document.addEventListener('submit', event => {
-      const element = event.target;
-      element.matches('.search-form') ? event.preventDefault() : null;
-    });
-  }
-
   // DOM methods
   renderSearchFormModal(location) {
     const searchFormModal = document.createElement('div');
@@ -89,7 +76,6 @@ class SearchFormModal {
     document.querySelector(location).appendChild(searchFormModal);
     document.querySelector('body').classList.add('modal-open');
     document.querySelector('.search-form .search-input').focus();
-    this.events();
   }
 
   removeSearchFormModal(location) {

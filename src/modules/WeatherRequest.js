@@ -1,20 +1,17 @@
 import axios from 'axios';
-import Header from './Header';
 import LoadingSpinner from './LoadingSpinner';
 import WeatherResults from './WeatherResults';
 import ErrorMessage from './ErrorMessage';
-import PageLoadContent from './PageLoadContent';
-import SearchFormModal from './SearchFormModal';
 import getTempType from '../utils/getTempType';
 
 class WeatherRequest {
-  constructor() {
-    this.header = new Header();
+  constructor(headerInstance, pageLoadContentInstance, searchFormModalInstance) {
+    this.header = headerInstance;
     this.loadingSpinner = new LoadingSpinner();
     this.weatherResults = new WeatherResults();
     this.errorMessage = new ErrorMessage();
-    this.pageLoadContent = new PageLoadContent();
-    this.searchFormModal = new SearchFormModal();
+    this.pageLoadContent = pageLoadContentInstance;
+    this.searchFormModal = searchFormModalInstance;
     this.weatherData = null;
   }
 

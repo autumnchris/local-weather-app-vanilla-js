@@ -8,9 +8,9 @@ class App {
   constructor() {
     this.header = new Header();
     this.footer = new Footer();
-    this.weatherRequest = new WeatherRequest();
     this.pageLoadContent = new PageLoadContent();
     this.searchFormModal = new SearchFormModal();
+    this.weatherRequest = new WeatherRequest(this.header, this.pageLoadContent, this.searchFormModal);
     this.renderApp();
   }
 
@@ -23,11 +23,21 @@ class App {
         element.matches('.city-search-button') ? this.searchFormModal.renderSearchFormModal('main') : null;
         element.matches('#modal .close-button') ? this.searchFormModal.removeSearchFormModal('main') : null;
         element.matches('#modal') ? this.searchFormModal.removeSearchFormModal('main'): null;
-        element.matches('.search-options .city-search-result') ? this.weatherRequest.selectCity(element.dataset.lat, element.dataset.lon) : null; 
+        element.matches('.search-options .city-search-result') ? this.weatherRequest.selectCity(element.dataset.lat, element.dataset.lon) : null;
       });
 
       document.addEventListener('keydown', event => {
         document.querySelector('#modal') && event.key === 'Escape' ? this.searchFormModal.removeSearchFormModal('main'): null;
+      });
+
+      document.addEventListener('keyup', event => {
+        const element = event.target;
+        element.matches('.search-form .search-input') ? this.searchFormModal.handleChange(element.value) : null;
+      });
+
+      document.addEventListener('submit', event => {
+        const element = event.target;
+        element.matches('.search-form') ? event.preventDefault() : null;
       });
     }
 
