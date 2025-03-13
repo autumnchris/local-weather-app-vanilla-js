@@ -34,6 +34,8 @@ class SearchFormModal {
   }
 
   fetchCitySearchResults(searchInput) {
+    const modal = document.getElementById('modal');
+
     axios.get(`https://autumnchris-local-weather-backend.onrender.com/cities?searchInput=${searchInput}`).then(response => {
       this.loadingSpinner.removeLoadingSpinner('.modal-body');
 
@@ -45,7 +47,7 @@ class SearchFormModal {
       }
     }).catch(() => {
       this.loadingSpinner.removeLoadingSpinner('.modal-body');
-      this.errorMessage.renderErrorMessage('Unable to load city search results at this time.', '.modal-body');
+      if(modal) this.errorMessage.renderErrorMessage('Unable to load city search results at this time.', '.modal-body');
     });
   }
 
