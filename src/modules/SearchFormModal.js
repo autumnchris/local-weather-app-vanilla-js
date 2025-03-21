@@ -36,7 +36,7 @@ class SearchFormModal {
   fetchCitySearchResults(searchInput) {
     const modal = document.getElementById('modal');
 
-    axios.get(`https://autumnchris-local-weather-backend.onrender.com/cities?searchInput=${searchInput}`).then(response => {
+    axios.get(`https://autumnchris-local-weather-backend-api.onrender.com/api/cities?searchInput=${searchInput}`).then(response => {
       this.loadingSpinner.removeLoadingSpinner('.modal-body');
 
       if (response.data.cities.data.length === 0 && searchInput) {

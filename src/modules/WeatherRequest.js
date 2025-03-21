@@ -33,7 +33,7 @@ class WeatherRequest {
   }
 
   fetchWeatherResults(lat, lon) {
-    axios.get(`https://autumnchris-local-weather-backend.onrender.com/weather?lat=${lat}&lon=${lon}`).then(response => {
+    axios.get(`https://autumnchris-local-weather-backend-api.onrender.com/api/weather?lat=${lat}&lon=${lon}`).then(response => {
       this.weatherData = {
         city: response.data.currentWeather.name,
         timezoneOffset: Math.floor(response.data.forecast.timezone_offset / 60),
