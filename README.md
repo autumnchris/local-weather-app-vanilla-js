@@ -2,7 +2,7 @@
 
 A front-end web app that uses HTML5 Geolocation and the OpenWeatherMap API to get the user's current weather and forecast. Built with vanilla JS.
 
-Inspired by the [Weather App assignment](https://www.theodinproject.com/lessons/node-path-javascript-weather-app) as part of the curriculum for the [JavaScript Course](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript) on [The Odin Project](https://www.theodinproject.com) as well as the [Show the Local Weather challenge](https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/show-the-local-weather) as part of the curriculum for the [Coding Interview Prep](https://www.freecodecamp.org/learn/coding-interview-prep) on [freeCodeCamp](https://www.freecodecamp.org).
+Inspired by both the [Weather App assignment](https://www.theodinproject.com/lessons/node-path-javascript-weather-app) as part of the curriculum for the [JavaScript Course](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript) on [The Odin Project](https://www.theodinproject.com) as well as the [Show the Local Weather challenge](https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/show-the-local-weather) as part of the curriculum for the [Coding Interview Prep](https://www.freecodecamp.org/learn/coding-interview-prep) on [freeCodeCamp](https://www.freecodecamp.org).
 
 ---
 
